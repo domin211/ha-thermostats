@@ -67,6 +67,11 @@ export function Fan({ className }: { className?: string }) {
 
 export function ToneIcon({ c, className }: { c: Climate; className?: string }) {
   const t = toneOf(c);
+  if (!c.modes.some((m) => m !== "off" && m !== "heat")) {
+    if (isHeating(c)) return <Flame className={`ico ico-heat ${className ?? ""}`} />;
+    if (c.state === "off" || c.target === null || c.target <= 16) return <Snow className={`ico ico-sky ${className ?? ""}`} />;
+    return <Flame className={`ico ico-idle ${className ?? ""}`} />;
+  }
   if (t === "heat") return <Flame className={`ico ico-heat ${className ?? ""}`} />;
   if (t === "cool") return <Snow className={`ico ico-cool ${className ?? ""}`} />;
   if (c.state === "fan_only") return <Fan className={`ico ico-idle ${className ?? ""}`} />;

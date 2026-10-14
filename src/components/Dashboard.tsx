@@ -105,7 +105,7 @@ function clock(iso?: string) {
 }
 
 export function Dashboard({ initial }: { initial: StatesResponse | null }) {
-  const { data, climates, error, busy, send } = useClimates(initial);
+  const { data, climates, error, fetchError, busy, send } = useClimates(initial);
   const [q, setQ] = useState("");
   const [filter, setFilter] = useState<Filter>("all");
   const [area, setArea] = useState<AreaKey | "all">("all");
@@ -127,6 +127,7 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
   );
 
   const readOnly = data?.readOnly ?? false;
+  const connected = data?.source === "live" && !fetchError;
   const guardedSend: Send = (r) => {
     if (!readOnly) send(r);
   };
@@ -135,12 +136,12 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
     <div className="shell">
       <header className="hero">
         <div className="hero-meta">
-          <span className={`dot ${error ? "dot-err" : data?.source === "live" ? "dot-ok" : "dot-mock"}`} />
-          <span>{error ? "Chyba připojení" : data?.source === "live" ? "Home Assistant" : "Ukázková data"}</span>
-          {data?.fetchedAt && !error && <span className="hero-time">aktualizováno {clock(data.fetchedAt)}</span>}
+          <span className={`dot ${connected ? "dot-ok" : "dot-err"}`} />
+          <span>{connected ? "Home Assistant" : "Odpojeno"}</span>
+          {data?.fetchedAt && <span className="hero-time">aktualizováno {clock(data.fetchedAt)}</span>}
           {busy && <span className="hero-time">· odesílám</span>}
         </div>
-        <h1 className="hero-title">Termostaty</h1>
+        <h1 className="hero-title">U Fandy Topení</h1>
         <div className="hero-stats">
           <div className="stat">
             <span className="stat-num">{stats.heating}</span>

@@ -151,6 +151,7 @@ button:disabled { cursor: default; opacity: .4; }
 .ico { width: 12cqi; height: 12cqi; margin-top: 5cqi; }
 .ico-heat { color: var(--flame); }
 .ico-cool { color: var(--cyan); }
+.ico-sky { color: var(--sky); }
 .ico-idle { color: #8e8e93; }
 .ico-off { color: #8e8e93; }
 .dial-heat .dial-arc { stroke: var(--orange); }

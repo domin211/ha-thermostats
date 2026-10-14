@@ -11,6 +11,7 @@ type Override = { target?: number; state?: string; until: number };
 export function useClimates(initial: StatesResponse | null) {
   const [data, setData] = useState<StatesResponse | null>(initial);
   const [error, setError] = useState<string | null>(null);
+  const [fetchError, setFetchError] = useState(false);
   const [overrides, setOverrides] = useState<Record<string, Override>>({});
   const [busy, setBusy] = useState(0);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -26,8 +27,10 @@ export function useClimates(initial: StatesResponse | null) {
       if (!res.ok) throw new Error(json.error ?? `HTTP ${res.status}`);
       setData(json as StatesResponse);
       setError(null);
+      setFetchError(false);
     } catch (e) {
       setError((e as Error).message);
+      setFetchError(true);
     }
   }, []);
 
@@ -100,5 +103,5 @@ export function useClimates(initial: StatesResponse | null) {
     [refresh],
   );
 
-  return { data, climates, error, busy: busy > 0, send, refresh };
+  return { data, climates, error, fetchError, busy: busy > 0, send, refresh };
 }
