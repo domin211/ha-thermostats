@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useId, useRef } from "react";
-import { reading } from "@/lib/areas";
+import { isHeating, reading } from "@/lib/areas";
 import type { Climate } from "@/lib/types";
 
 // Geometry: 300° sweep with the gap centred at the bottom, like a watch-face ring.
@@ -23,9 +23,9 @@ function arcPath(cx: number, cy: number, r: number, from: number, to: number) {
 export type DialTone = "off" | "idle" | "heat" | "cool" | "fault";
 
 export function toneOf(c: Climate): DialTone {
-  if (c.unavailable || c.state === "off") return "off";
   if (reading(c).kind === "fault") return "fault";
-  if (c.action === "heating") return "heat";
+  if (c.unavailable || c.state === "off") return "off";
+  if (isHeating(c)) return "heat";
   if (c.action === "cooling" || c.state === "cool") return "cool";
   return "idle";
 }
@@ -98,7 +98,6 @@ export function Dial({ c, value, size = "sm", onDrag, center, arc }: DialProps) 
   const W = 200;
   const R = size === "lg" ? 82 : 80;
   const SW = size === "lg" ? 11 : 11;
-  const on = tone !== "off";
   const f = arc
     ? arc.value === null
       ? null
@@ -128,7 +127,7 @@ export function Dial({ c, value, size = "sm", onDrag, center, arc }: DialProps) 
     [c.min, c.max, c.step],
   );
 
-  const drag = onDrag && on && target !== null;
+  const drag = onDrag && target !== null;
   const knob = target !== null ? polar(W / 2, W / 2, R, end) : null;
 
   return (
@@ -138,7 +137,7 @@ export function Dial({ c, value, size = "sm", onDrag, center, arc }: DialProps) 
       viewBox={`0 0 ${W} ${W}`}
       className={`dial dial-${size} dial-${tone}${drag ? " dial-drag" : ""}`}
       role="img"
-      aria-label={`${c.name}: ${r.kind === "ok" ? r.value.toFixed(1) + " degrees" : r.kind === "fault" ? "sensor fault" : "no reading"}`}
+      aria-label={`${c.name}: ${r.kind === "ok" ? r.value.toFixed(1) + " °C" : r.kind === "fault" ? "porucha čidla" : "bez měření"}`}
     >
       <defs>
         <linearGradient id={`g${gid}`} x1="0" y1="1" x2="1" y2="0">
@@ -148,11 +147,11 @@ export function Dial({ c, value, size = "sm", onDrag, center, arc }: DialProps) 
         </linearGradient>
       </defs>
       <circle cx={W / 2} cy={W / 2} r={W / 2 - 1} className="dial-face" />
-      {on && <path d={arcPath(W / 2, W / 2, R, START, START + SWEEP)} className="dial-track" strokeWidth={SW} />}
-      {on && f !== null && (
+      {<path d={arcPath(W / 2, W / 2, R, START, START + SWEEP)} className="dial-track" strokeWidth={SW} />}
+      {f !== null && (
         <path d={arcPath(W / 2, W / 2, R, START, end)} className="dial-arc" strokeWidth={SW} style={tone === "cool" ? { stroke: `url(#g${gid})` } : undefined} />
       )}
-      {on && drag && knob && <circle cx={knob[0]} cy={knob[1]} r={SW / 2 + 3} className="dial-knob" />}
+      {drag && knob && <circle cx={knob[0]} cy={knob[1]} r={SW / 2 + 3} className="dial-knob" />}
       {drag && (
         // Only the ring captures touches (touch-action: none); the face and the rest of the page scroll normally.
         <path
@@ -161,7 +160,7 @@ export function Dial({ c, value, size = "sm", onDrag, center, arc }: DialProps) 
           strokeWidth={44}
           role="slider"
           tabIndex={0}
-          aria-label={`${c.name} target temperature`}
+          aria-label={`${c.name}: požadovaná teplota`}
           aria-valuenow={target ?? undefined}
           aria-valuemin={c.min}
           aria-valuemax={c.max}
@@ -208,7 +207,7 @@ export function FanRing({ levels, active, label }: { levels: number; active: num
   const seg = (SWEEP - gap * (levels - 1)) / levels;
   return (
     <div className="dial-wrap dial-wrap-sm">
-    <svg viewBox={`0 0 ${W} ${W}`} className="dial dial-sm dial-fan" role="img" aria-label={`Fan ${label}`}>
+    <svg viewBox={`0 0 ${W} ${W}`} className="dial dial-sm dial-fan" role="img" aria-label={`Ventilátor ${label}`}>
       <circle cx={W / 2} cy={W / 2} r={W / 2 - 1} className="dial-face" />
       {Array.from({ length: levels }, (_, i) => {
         const a = START + i * (seg + gap);

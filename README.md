@@ -22,7 +22,7 @@ that file; this app adapts it to a multi-zone building.
   snowflake/drop for cooling/drying, grey when idle. Off zones are greyed out
   with no arc. Cooling arcs use the blue-to-red gradient from the reference.
   AC fan speed is shown as a dashed ring.
-- **Inline control**: drag the ring of any dial to set the target (sent on release), small −/+ buttons for 0.5° steps, a pill toggle (or tap the icon) for on/off, and a compact mode selector under each AC unit. Only the ring captures touch, so the page scrolls normally on phones.
+- **Inline control** (UI in Czech): drag the ring of any dial to set the target (sent on release), small −/+ buttons in the device step. Dials are always active, even when a zone is off (setting a target does not switch it on). Power is changed via "Upravit vše" group actions. The ring is orange while heating, white when idle, blue when cooling. Rooms 14 and 15 show one "Koupelna" dial that drives both the bathroom and WC thermostats. Only the ring captures touch, so the page scrolls normally on phones.
 - **Search, filters and group actions** are iOS-style: search field, segmented
   filter, area chips, and "Edit all" grouped rows with confirmation.
 - **Sensor faults**: readings above 60 °C show "Sensor fault" in red instead of

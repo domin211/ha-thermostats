@@ -3,11 +3,11 @@ import type { AreaKey, Climate } from "./types";
 export const FAULT_LIMIT = 60;
 
 export const AREAS: { key: AreaKey; label: string; code: string }[] = [
-  { key: "rooms", label: "Guest rooms", code: "A" },
-  { key: "common", label: "Common areas", code: "B" },
+  { key: "rooms", label: "Pokoje", code: "A" },
+  { key: "common", label: "Společné prostory", code: "B" },
   { key: "wellness", label: "Wellness", code: "C" },
-  { key: "staff", label: "Staff & offices", code: "D" },
-  { key: "ac", label: "Air conditioning", code: "E" },
+  { key: "staff", label: "Personál a kanceláře", code: "D" },
+  { key: "ac", label: "Klimatizace", code: "E" },
 ];
 
 const WELLNESS = /^climate\.(vatna|sprchy_.*|pred_saunou|zchl_baz|bazen_.*|sauna|zchlazovaci_bazen)$/;
@@ -38,7 +38,7 @@ export function roomInfo(c: Climate): { room: number; kind: ZoneKind } | null {
   return { room: n, kind };
 }
 
-export const KIND_LABEL: Record<ZoneKind, string> = { room: "Room", bath: "Bath", wc: "WC" };
+export const KIND_LABEL: Record<ZoneKind, string> = { room: "Pokoj", bath: "Koupelna", wc: "WC" };
 const KIND_ORDER: Record<ZoneKind, number> = { room: 0, bath: 1, wc: 2 };
 
 export interface RoomGroup {
@@ -60,39 +60,48 @@ export function groupRooms(list: Climate[]): RoomGroup[] {
 }
 
 const PRETTY: Record<string, string> = {
-  "climate.cervena_chodba_priz": "Red corridor, ground floor",
-  "climate.cervena_chodba_patro": "Red corridor, first floor",
-  "climate.cervena_schodiste": "Red staircase",
-  "climate.modra_chodba_prizemi": "Blue corridor, ground floor",
-  "climate.modra_chodba_patro": "Blue corridor, first floor",
-  "climate.modra_schodiste": "Blue staircase",
-  "climate.bazen_p": "Pool, right",
-  "climate.bazen_l": "Pool, left",
-  "climate.zchl_baz": "Plunge pool",
-  "climate.zchlazovaci_bazen": "Plunge pool water",
-  "climate.pred_saunou": "Sauna anteroom",
-  "climate.sprchy_z": "Showers, women",
-  "climate.sprchy_m": "Showers, men",
-  "climate.wc_z": "WC, women",
-  "climate.wc_m": "WC, men",
-  "climate.vchod": "Entrance",
-  "climate.sal": "Hall",
-  "climate.schody": "Stairs",
-  "climate.kancelar": "Office",
-  "climate.satna_personal": "Staff changing room",
-  "climate.satna_personal_wc": "Staff WC",
-  "climate.satna_personal_spr": "Staff shower",
-  "climate.kancelar_moje": "My office",
-  "climate.kancl_dole": "Office, downstairs",
-  "climate.kuchyne": "Kitchen",
+  "climate.cervena_chodba_priz": "Červená chodba, přízemí",
+  "climate.cervena_chodba_patro": "Červená chodba, patro",
+  "climate.cervena_schodiste": "Červené schodiště",
+  "climate.modra_chodba_prizemi": "Modrá chodba, přízemí",
+  "climate.modra_chodba_patro": "Modrá chodba, patro",
+  "climate.modra_schodiste": "Modré schodiště",
+  "climate.vatna": "Vatna",
+  "climate.bazen_p": "Bazén P",
+  "climate.bazen_l": "Bazén L",
+  "climate.zchl_baz": "Ochlazovací bazén",
+  "climate.zchlazovaci_bazen": "Ochlazovací bazén, voda",
+  "climate.pred_saunou": "Před saunou",
+  "climate.sauna": "Sauna",
+  "climate.sprchy_z": "Sprchy Ž",
+  "climate.sprchy_m": "Sprchy M",
+  "climate.wc_z": "WC Ž",
+  "climate.wc_m": "WC M",
+  "climate.wc": "WC",
+  "climate.vchod": "Vchod",
+  "climate.sal": "Sál",
+  "climate.schody": "Schody",
+  "climate.bar": "Bar",
+  "climate.pizza": "Pizza",
+  "climate.kuchyn": "Kuchyně",
+  "climate.kancelar": "Kancelář",
+  "climate.1": "Kancelář",
+  "climate.1_wc": "Koupelna kancelář",
+  "climate.satna_personal": "Šatna personál",
+  "climate.satna_personal_wc": "Šatna personál WC",
+  "climate.satna_personal_spr": "Šatna personál sprcha",
+  "climate.kancelar_moje": "Moje kancelář",
+  "climate.kancl_dole": "Kancelář dole",
+  "climate.kuchyne": "Kuchyně",
   "climate.klimatizace_bar": "Bar",
+  "climate.denis_air": "Denis Air",
 };
 
 export function displayName(c: Climate): string {
   if (PRETTY[c.id]) return PRETTY[c.id];
   const n = c.name
-    .replace(/^Pokoj (\d+)$/i, "Room $1")
-    .replace(/^(?:Koupelna (\d+)|(\d+) Koupelna)$/i, (_, a, b) => `Bathroom ${a ?? b}`)
+    .replace(/^Pokoj (\d+)$/i, "Pokoj $1")
+    .replace(/^(?:Koupelna (\d+)|(\d+) Koupelna)$/i, (_, a, b) => `Koupelna ${a ?? b}`)
     .replace(/^(?:WC (\d+)|(\d+) WC)$/i, (_, a, b) => `WC ${a ?? b}`);
   // Turn SHOUTING names into sentence case, keep accents.
   if (n === n.toUpperCase() && /[A-Z]/.test(n)) {
@@ -114,14 +123,19 @@ export function reading(c: Climate): Reading {
 }
 
 export const isOn = (c: Climate) => c.state !== "off" && !c.unavailable;
-export const isHeating = (c: Climate) => c.action === "heating";
+export const isHeating = (c: Climate) => {
+  if (c.action === "heating") return true;
+  if (c.action) return false;
+  const r = reading(c);
+  return c.state === "heat" && r.kind === "ok" && c.target !== null && r.value < c.target;
+};
 
 export const MODE_LABEL: Record<string, string> = {
-  off: "Off",
-  heat: "Heat",
-  cool: "Cool",
-  dry: "Dry",
+  off: "Vypnuto",
+  heat: "Topení",
+  cool: "Chlazení",
+  dry: "Odvlhčení",
   auto: "Auto",
-  fan_only: "Fan",
-  heat_cool: "H/C",
+  fan_only: "Ventilátor",
+  heat_cool: "Topení/chlazení",
 };

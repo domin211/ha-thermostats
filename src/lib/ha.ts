@@ -63,7 +63,7 @@ export async function getClimates(): Promise<StatesResponse> {
     cache: "no-store",
     signal: AbortSignal.timeout(10_000),
   });
-  if (!res.ok) throw new Error(`Home Assistant responded ${res.status}`);
+  if (!res.ok) throw new Error(`Home Assistant odpověděl ${res.status}`);
   const all = (await res.json()) as HaState[];
   return {
     source: "live",
@@ -75,8 +75,8 @@ export async function getClimates(): Promise<StatesResponse> {
 
 export async function control(req: ControlRequest): Promise<void> {
   const ids = req.entityIds.filter((id) => /^climate\.[a-z0-9_]+$/.test(id));
-  if (ids.length === 0) throw new Error("No valid entities");
-  if (isReadOnly()) throw new Error("Read-only mode: changes are disabled");
+  if (ids.length === 0) throw new Error("Žádné platné entity");
+  if (isReadOnly()) throw new Error("Režim jen pro čtení: změny jsou vypnuté");
 
   const cfg = config();
   if (!cfg) {
@@ -103,5 +103,5 @@ export async function control(req: ControlRequest): Promise<void> {
     cache: "no-store",
     signal: AbortSignal.timeout(15_000),
   });
-  if (!res.ok) throw new Error(`Home Assistant responded ${res.status}`);
+  if (!res.ok) throw new Error(`Home Assistant odpověděl ${res.status}`);
 }

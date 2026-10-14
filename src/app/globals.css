@@ -132,7 +132,6 @@ button:disabled { cursor: default; opacity: .4; }
 .dial-idle .dial-arc { stroke: #e5e5ea; }
 .dial-cool .dial-arc { stroke: var(--cyan); }
 .dial-fault .dial-arc { stroke: var(--red); opacity: .8; }
-.dial-off .dial-track { stroke: #1c1c1e; }
 .dial-fan .dial-arc { stroke: #fff; }
 .dial-knob { fill: #000; stroke: #fff; stroke-width: 4; }
 .dial-center {
@@ -145,15 +144,16 @@ button:disabled { cursor: default; opacity: .4; }
 .dial-num-lg { font-size: 30cqi; font-weight: 200; }
 .dial-num-word { font-size: 14cqi; font-weight: 300; text-transform: capitalize; letter-spacing: -0.02em; }
 .dial-num-none { color: var(--text-3); }
-.is-off .dial-num { color: #6e6e73; }
-.dial-off .dial-face { fill: #0a0a0b; }
 .dial-label { font-size: 6.5cqi; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 1cqi; }
 .dial-fault { font-size: 9.5cqi; line-height: 1.05; font-weight: 500; color: var(--red); text-transform: uppercase; letter-spacing: .04em; }
 .ico { width: 12cqi; height: 12cqi; margin-top: 5cqi; }
 .ico-heat { color: var(--flame); }
 .ico-cool { color: var(--cyan); }
 .ico-idle { color: #8e8e93; }
-.ico-off { color: #3a3a3c; }
+.ico-off { color: #8e8e93; }
+.dial-heat .dial-arc { stroke: var(--orange); }
+.dial-heat .dial-knob { stroke: var(--orange); }
+.dial-off .dial-arc { stroke: #e5e5ea; }
 
 /* Grouped rows (iOS settings) */
 .group { background: var(--fill); border-radius: 12px; overflow: hidden; }

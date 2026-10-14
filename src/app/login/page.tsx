@@ -1,6 +1,6 @@
 import { LoginForm } from "./form";
 
-export const metadata = { title: "Sign in · Thermostat" };
+export const metadata = { title: "Přihlášení · Termostaty" };
 
 export default function LoginPage() {
   return (
@@ -15,8 +15,8 @@ export default function LoginPage() {
           <svg viewBox="0 0 24 24"><path fill="#ff9f0a" d="M12.6 2.2c.3 2.6-.8 4.3-2.2 5.9-1.5 1.7-3.4 3.4-3.4 6.5A5 5 0 0 0 12 19.8a5 5 0 0 0 5-5.1c0-2.2-1-3.9-2-5.1-.2 1.2-.8 2.1-1.7 2.6.4-3.4-.3-7.1-.7-10z" /></svg>
         </span>
       </div>
-      <h1 className="large-title">Thermostat</h1>
-      <p className="login-sub">Enter the password to continue.</p>
+      <h1 className="large-title">Termostaty</h1>
+      <p className="login-sub">Pro pokračování zadejte heslo.</p>
       <LoginForm />
     </main>
   );

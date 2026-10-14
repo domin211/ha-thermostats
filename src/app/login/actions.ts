@@ -11,13 +11,13 @@ export async function login(_: { error?: string } | undefined, form: FormData) {
   const ip = h.get("x-forwarded-for")?.split(",")[0].trim() || "local";
   const a = attempts.get(ip);
   const now = Date.now();
-  if (a && now - a.t < 60_000 && a.n >= 8) return { error: "Too many attempts. Wait a minute." };
+  if (a && now - a.t < 60_000 && a.n >= 8) return { error: "Příliš mnoho pokusů. Počkejte minutu." };
 
   const ok = await checkPassword(String(form.get("password") ?? ""));
   if (!ok) {
     attempts.set(ip, a && now - a.t < 60_000 ? { n: a.n + 1, t: a.t } : { n: 1, t: now });
     await new Promise((r) => setTimeout(r, 400));
-    return { error: "Wrong password." };
+    return { error: "Nesprávné heslo." };
   }
   attempts.delete(ip);
   const proto = h.get("x-forwarded-proto") ?? "http";
