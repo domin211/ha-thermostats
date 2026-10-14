@@ -7,7 +7,7 @@ export default function LoginPage() {
     <main className="login">
       <div className="login-dial" aria-hidden>
         <svg viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="99" fill="#0e0e0f" stroke="#2a2a2d" strokeWidth="1.2" />
+          <circle cx="100" cy="100" r="99" fill="#0e0e0f" />
           <path d="M 60 169.3 A 80 80 0 1 1 140 169.3" fill="none" stroke="#3a3a3c" strokeWidth="11" strokeLinecap="round" />
           <path d="M 60 169.3 A 80 80 0 0 1 100 20" fill="none" stroke="#fff" strokeWidth="11" strokeLinecap="round" />
         </svg>

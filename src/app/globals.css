@@ -127,7 +127,7 @@ button:disabled { cursor: default; opacity: .4; }
 .dial-hit { fill: none; stroke: transparent; pointer-events: stroke; touch-action: none; cursor: grab; outline: none; }
 .dial-hit:active { cursor: grabbing; }
 .dial-hit:focus-visible { stroke: rgba(10,132,255,.35); }
-.dial-face { fill: #0e0e0f; stroke: #2a2a2d; stroke-width: 1.2; transition: fill .15s; }
+.dial-face { fill: #0e0e0f; stroke: none; }
 .dial-track { fill: none; stroke: #3a3a3c; stroke-linecap: round; }
 .dial-arc { fill: none; stroke: #fff; stroke-linecap: round; }
 .dial-idle .dial-arc { stroke: var(--sky); }
@@ -226,3 +226,5 @@ button:disabled { cursor: default; opacity: .4; }
   .hero-stats { gap: 22px; margin-top: 18px; }
   .stat-num { font-size: 28px; }
 }
+
+@media (min-width: 761px) { .chips { flex-wrap: wrap; overflow: visible; } }

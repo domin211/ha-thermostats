@@ -222,7 +222,6 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
         })}
       </main>
 
-      <footer className="foot">Hodnoty nad 60 °C jsou zobrazeny jako porucha čidla. Design podle „Apple Thermostat“ od Takistar.</footer>
     </div>
   );
 }
