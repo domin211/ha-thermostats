@@ -23,7 +23,7 @@ that file; this app adapts it to a multi-zone building.
   with no arc. Cooling arcs use the blue-to-red gradient from the reference.
   AC fan speed is shown as a dashed ring.
 - **Inline control** (UI in Czech): drag the ring of any dial (whole degrees, sent on release) or use the −/+ buttons (1 °C). Dials are always active, even when a zone is off. Ring colour carries the state: orange = heating, light blue = not heating, blue gradient = AC cooling, red = sensor fault. AC units have an inline mode selector. Only the ring captures touch, so the page scrolls normally on phones.
-- **Areas**: Hlavní budova (office + rooms 2–5), Červený domeček (6–14), Modrý domeček (16–25), Chodby domečků, Wellness, Personál a kanceláře, Klimatizace, Společné prostory. Rooms 14 and 15 are one physical room shown as "Pokoj 14": one Pokoj dial (14_pokoj + 15_pokoj) and one Koupelna dial (both bathrooms and WCs).
+- **Areas**: Hlavní budova (office + rooms 2–5), Červený domeček (6–14), Modrý domeček (16–25), Chodby domečků (two dials: Červené chodby and Modré chodby, each driving all three corridor/staircase thermostats, showing their average temperature), Wellness, Personál a kanceláře, Klimatizace, Společné prostory. Rooms 14 and 15 are one physical room shown as "Pokoj 14": one Pokoj dial (14_pokoj + 15_pokoj) and one Koupelna dial (both bathrooms and WCs).
 - **Search and filters** are iOS-style: search field, segmented filter, area chips.
 - **Sensor faults**: readings above 60 °C show "Sensor fault" in red instead of
   a number; missing readings show `--`.

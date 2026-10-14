@@ -33,14 +33,17 @@ function matches(c: Climate, q: string, f: Filter) {
 const whole = (v: number) => Math.round(v);
 
 /** Combine several thermostats into one dial. First entity supplies the reading and target. */
-function combine(list: Climate[]): Climate {
+function combine(list: Climate[], average = false): Climate {
   const [b, ...rest] = list;
   const all = [b, ...rest];
+  const valid = all.map(reading).flatMap((r) => (r.kind === "ok" ? [r.value] : []));
+  const current = average ? (valid.length ? Math.round((valid.reduce((x, y) => x + y, 0) / valid.length) * 10) / 10 : null) : b.current;
   const heating = all.some(isHeating);
   const anyOn = all.find((c) => c.state !== "off");
   return {
     ...b,
     state: anyOn ? anyOn.state : "off",
+    current,
     action: heating ? "heating" : b.action,
     min: Math.max(...all.map((c) => c.min)),
     max: Math.min(...all.map((c) => c.max)),
@@ -209,6 +212,19 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
                       </div>
                     </div>
                   ))}
+                </div>
+              ) : a.key === "corridors" ? (
+                <div className="dials dials-flat">
+                  {(
+                    [
+                      ["Červené chodby", /^climate\.cervena_/],
+                      ["Modré chodby", /^climate\.modra_/],
+                    ] as const
+                  ).map(([label, re]) => {
+                    const members = shown.filter((c) => re.test(c.id));
+                    if (!members.length) return null;
+                    return <Tile key={label} c={combine(members, true)} ids={members.map((c) => c.id)} label={label} send={guardedSend} readOnly={readOnly} />;
+                  })}
                 </div>
               ) : (
                 <div className="dials dials-flat">
