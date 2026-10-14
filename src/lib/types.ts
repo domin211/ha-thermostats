@@ -23,7 +23,7 @@ export interface Climate {
   unavailable: boolean;
 }
 
-export type AreaKey = "rooms" | "common" | "wellness" | "staff" | "ac";
+export type AreaKey = "main" | "red" | "blue" | "corridors" | "wellness" | "staff" | "ac" | "common";
 
 export interface StatesResponse {
   source: "live" | "mock";

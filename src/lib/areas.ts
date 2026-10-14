@@ -2,16 +2,22 @@ import type { AreaKey, Climate } from "./types";
 
 export const FAULT_LIMIT = 60;
 
-export const AREAS: { key: AreaKey; label: string; code: string }[] = [
-  { key: "rooms", label: "Pokoje", code: "A" },
-  { key: "common", label: "Společné prostory", code: "B" },
-  { key: "wellness", label: "Wellness", code: "C" },
-  { key: "staff", label: "Personál a kanceláře", code: "D" },
-  { key: "ac", label: "Klimatizace", code: "E" },
+export const AREAS: { key: AreaKey; label: string }[] = [
+  { key: "main", label: "Hlavní budova" },
+  { key: "red", label: "Červený domeček" },
+  { key: "blue", label: "Modrý domeček" },
+  { key: "corridors", label: "Chodby domečků" },
+  { key: "wellness", label: "Wellness" },
+  { key: "staff", label: "Personál a kanceláře" },
+  { key: "ac", label: "Klimatizace" },
+  { key: "common", label: "Společné prostory" },
 ];
 
+export const ROOM_AREAS: AreaKey[] = ["main", "red", "blue"];
+const CORRIDOR = /^climate\.(cervena|modra)_(chodba|schodiste)/;
+
 const WELLNESS = /^climate\.(vatna|sprchy_.*|pred_saunou|zchl_baz|bazen_.*|sauna|zchlazovaci_bazen)$/;
-const STAFF = /^climate\.(satna_personal.*|kancelar|1|1_wc)$/;
+const STAFF = /^climate\.(satna_personal.*|kancelar)$/;
 const ROOM = /^climate\.(\d+)(?:_(pokoj|koupelna|wc))?$/;
 
 export const isAc = (c: Climate) => c.modes.some((m) => m !== "off" && m !== "heat");
@@ -20,7 +26,9 @@ export function areaOf(c: Climate): AreaKey {
   if (isAc(c)) return "ac";
   if (WELLNESS.test(c.id)) return "wellness";
   if (STAFF.test(c.id)) return "staff";
-  if (ROOM.test(c.id)) return "rooms";
+  if (CORRIDOR.test(c.id)) return "corridors";
+  const info = roomInfo(c);
+  if (info) return info.room <= 5 ? "main" : info.room <= 15 ? "red" : "blue";
   return "common";
 }
 

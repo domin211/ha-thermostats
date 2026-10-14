@@ -101,9 +101,9 @@ export function Dial({ c, value, size = "sm", onDrag, center, arc }: DialProps) 
   const f = arc
     ? arc.value === null
       ? null
-      : Math.min(1, Math.max(0.02, (arc.value - arc.min) / (arc.max - arc.min)))
+      : Math.min(1, Math.max(0, (arc.value - arc.min) / (arc.max - arc.min)))
     : target !== null
-      ? Math.max(0.02, frac(c, target))
+      ? frac(c, target)
       : null;
   const end = f !== null ? START + SWEEP * f : START;
   const r = reading(c);
@@ -148,7 +148,7 @@ export function Dial({ c, value, size = "sm", onDrag, center, arc }: DialProps) 
       </defs>
       <circle cx={W / 2} cy={W / 2} r={W / 2 - 1} className="dial-face" />
       {<path d={arcPath(W / 2, W / 2, R, START, START + SWEEP)} className="dial-track" strokeWidth={SW} />}
-      {f !== null && (
+      {f !== null && f > 0.005 && (
         <path d={arcPath(W / 2, W / 2, R, START, end)} className="dial-arc" strokeWidth={SW} style={tone === "cool" ? { stroke: `url(#g${gid})` } : undefined} />
       )}
       {drag && knob && <circle cx={knob[0]} cy={knob[1]} r={SW / 2 + 3} className="dial-knob" />}

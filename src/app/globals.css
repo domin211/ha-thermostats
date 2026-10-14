@@ -13,6 +13,7 @@
   --flame: #ff7a1a;
   --blue: #0a84ff;
   --cyan: #64d2ff;
+  --sky: #a9d6f5;
   --green: #30d158;
   --red: #ff453a;
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", var(--f-inter), "Inter", system-ui, sans-serif;
@@ -128,8 +129,9 @@ button:disabled { cursor: default; opacity: .4; }
 .dial-hit:focus-visible { stroke: rgba(10,132,255,.35); }
 .dial-face { fill: #0e0e0f; stroke: #2a2a2d; stroke-width: 1.2; transition: fill .15s; }
 .dial-track { fill: none; stroke: #3a3a3c; stroke-linecap: round; }
-.dial-arc { fill: none; stroke: #fff; stroke-linecap: round; transition: d .25s; }
-.dial-idle .dial-arc { stroke: #e5e5ea; }
+.dial-arc { fill: none; stroke: #fff; stroke-linecap: round; }
+.dial-idle .dial-arc { stroke: var(--sky); }
+.dial-idle .dial-knob, .dial-off .dial-knob { stroke: var(--sky); }
 .dial-cool .dial-arc { stroke: var(--cyan); }
 .dial-fault .dial-arc { stroke: var(--red); opacity: .8; }
 .dial-fan .dial-arc { stroke: #fff; }
@@ -153,7 +155,7 @@ button:disabled { cursor: default; opacity: .4; }
 .ico-off { color: #8e8e93; }
 .dial-heat .dial-arc { stroke: var(--orange); }
 .dial-heat .dial-knob { stroke: var(--orange); }
-.dial-off .dial-arc { stroke: #e5e5ea; }
+.dial-off .dial-arc { stroke: var(--sky); }
 
 /* Grouped rows (iOS settings) */
 .group { background: var(--fill); border-radius: 12px; overflow: hidden; }
@@ -204,4 +206,23 @@ button:disabled { cursor: default; opacity: .4; }
   .rooms { grid-template-columns: 1fr; gap: 28px; }
   .dials, .dials-flat { grid-template-columns: 1fr 1fr; gap: 24px 14px; }
   .tile .dial-wrap { max-width: 168px; }
+}
+
+/* Hero header */
+.hero { padding: 48px 0 6px; }
+.hero-meta { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--text-2); }
+.hero-time { color: var(--text-3); }
+.hero-title { margin: 10px 0 0; font-size: 56px; line-height: 1; font-weight: 700; letter-spacing: -0.035em; }
+.hero-stats { display: flex; gap: 36px; margin-top: 26px; flex-wrap: wrap; }
+.stat { display: flex; align-items: baseline; gap: 8px; }
+.stat-num { font-size: 34px; font-weight: 300; letter-spacing: -0.03em; color: var(--orange); line-height: 1; }
+.stat-neutral { color: var(--text); }
+.stat-fault { color: var(--red); }
+.stat-label { font-size: 15px; color: var(--text-2); }
+.section-head { padding-top: 8px; border-top: .5px solid var(--sep); padding-top: 22px; }
+@media (max-width: 760px) {
+  .hero { padding-top: 28px; }
+  .hero-title { font-size: 40px; }
+  .hero-stats { gap: 22px; margin-top: 18px; }
+  .stat-num { font-size: 28px; }
 }
