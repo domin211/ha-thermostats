@@ -148,10 +148,10 @@ button:disabled { cursor: default; opacity: .4; }
 .dial-num-none { color: var(--text-3); }
 .dial-label { font-size: 6.5cqi; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 1cqi; }
 .dial-fault { font-size: 9.5cqi; line-height: 1.05; font-weight: 500; color: var(--red); text-transform: uppercase; letter-spacing: .04em; }
-.ico { width: 12cqi; height: 12cqi; margin-top: 5cqi; }
-.ico-heat { color: var(--flame); }
+.ico { width: clamp(18px, 12cqi, 24px); height: clamp(18px, 12cqi, 24px); margin-top: 5cqi; display: block; }
+.ico-heat { color: #ff9f0a; }
 .ico-cool { color: var(--cyan); }
-.ico-sky { color: var(--sky); }
+.ico-sky { color: #64d2ff; }
 .ico-idle { color: #8e8e93; }
 .ico-off { color: #8e8e93; }
 .dial-heat .dial-arc { stroke: var(--orange); }

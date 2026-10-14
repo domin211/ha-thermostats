@@ -2,6 +2,7 @@
 
 import { useCallback, useId, useRef } from "react";
 import { isHeating, reading } from "@/lib/areas";
+import { Flame as PhFlame, Snowflake as PhSnow } from "@phosphor-icons/react/dist/ssr";
 import type { Climate } from "@/lib/types";
 
 // Geometry: 300° sweep with the gap centred at the bottom, like a watch-face ring.
@@ -31,14 +32,7 @@ export function toneOf(c: Climate): DialTone {
 }
 
 export function Flame({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden>
-      <path
-        fill="currentColor"
-        d="M12.6 2.2c.3 2.6-.8 4.3-2.2 5.9-1.5 1.7-3.4 3.4-3.4 6.5A5 5 0 0 0 12 19.8a5 5 0 0 0 5-5.1c0-2.2-1-3.9-2-5.1-.2 1.2-.8 2.1-1.7 2.6.4-3.4-.3-7.1-.7-10z"
-      />
-    </svg>
-  );
+  return <PhFlame weight="fill" className={className} aria-hidden />;
 }
 export function Drop({ className }: { className?: string }) {
   return (
@@ -48,11 +42,7 @@ export function Drop({ className }: { className?: string }) {
   );
 }
 export function Snow({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      <path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7M9 4l3 2 3-2M9 20l3-2 3 2" />
-    </svg>
-  );
+  return <PhSnow weight="bold" className={className} aria-hidden />;
 }
 export function Fan({ className }: { className?: string }) {
   return (
