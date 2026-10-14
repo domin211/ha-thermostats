@@ -7,13 +7,12 @@ export function LoginForm() {
   const [state, action, pending] = useActionState(login, undefined);
   return (
     <form action={action} className="login-form">
-      <label htmlFor="pw" className="label">
-        Password
-      </label>
-      <input id="pw" name="password" type="password" autoComplete="current-password" autoFocus required />
+      <div className="group">
+        <input id="pw" name="password" type="password" placeholder="Password" aria-label="Password" autoComplete="current-password" autoFocus required />
+      </div>
       {state?.error && <p className="error">{state.error}</p>}
-      <button type="submit" className="btn btn-primary" disabled={pending}>
-        {pending ? "Checking" : "Unlock"}
+      <button type="submit" className="primary" disabled={pending}>
+        {pending ? "Checking…" : "Unlock"}
       </button>
     </form>
   );

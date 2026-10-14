@@ -6,30 +6,30 @@ and AC units). Next.js 15 App Router, TypeScript, no UI framework.
 
 ## Design direction
 
-The brief was "must not look AI-generated", so the app is designed like a
-piece of building hardware instead of a SaaS dashboard.
+The UI is modelled on the Figma Community file
+[**Apple Thermostat** by TAKISTAR](https://www.figma.com/community/file/1323735854821988829/apple-thermostat)
+("what if Apple made a thermostat?"). Credit for the visual language goes to
+that file; this app adapts it to a multi-zone building.
 
-- **References.** Braun / Dieter Rams (T3, ET66): warm grey housing,
-  off-white faceplates, a single signal colour, controls that look like
-  controls. Nest / ecobee: the current temperature is the hero, the setpoint is
-  secondary. Honeywell / Siemens building panels: dense, labelled zones, letter
-  codes per area (A Guest rooms, B Common, C Wellness, D Staff, E AC).
-- **Palette.** Housing `#e9e6df`, faceplate `#f7f5f0`, ink `#1f1e1c`,
-  hairlines `#d4d0c7`. Braun orange `#e3591f` is reserved for *heating* (left
-  edge stripe, status, counter). Petrol `#2e6a86` only for cooling. Oxide red
-  for faults. No gradients, no glass, no shadows, no emoji.
-- **Type.** IBM Plex Sans for labels, IBM Plex Mono with tabular figures for
-  every number, so readings line up like a segment display. Decimals and units
-  are set smaller, the way instrument readouts do it.
-- **Controls.** Square-ish stepper with hairline divisions for ±0.5 °C, a
-  rocker switch for on/off, a segmented mode selector for AC units. Group
-  actions live behind a "Group" toggle with a confirmation, so you can't switch
-  off the whole hotel by accident.
-- **Faults.** Any reading above 60 °C (several sensors report ~2070 °C) is
-  shown as a hatched "Sensor fault" tag instead of a number; a missing reading
-  shows `--.-`.
-- **Phones first-class.** One column, full-width search and filters, a
-  horizontally scrolling area bar, 36 px touch targets.
+- **Pure black** (`#000`) dark mode, iOS system greys for surfaces
+  (`#1c1c1e`, `#2c2c2e`), separators and secondary text.
+- **Apple typography**: system stack (`-apple-system`, SF Pro), falling back
+  to Inter. Large bold section titles like "Control Panel"; light-weight
+  numerals inside dials.
+- **Every thermostat is a round, watch-face dial**: a thick rounded arc on a
+  dark grey track (300° sweep, gap at the bottom), a big centred number for
+  the current reading and a small icon below: orange flame when heating, blue
+  snowflake/drop for cooling/drying, grey when idle. Off zones are greyed out
+  with no arc. Cooling arcs use the blue-to-red gradient from the reference.
+  AC fan speed is shown as a dashed ring.
+- **Detail view**: tap a dial for a full-screen single dial. Drag the arc (or
+  use the round −/+ buttons) to set the temperature; iOS pill toggle (green)
+  for power and a segmented control for AC modes; info in grouped rows.
+- **Search, filters and group actions** are iOS-style: search field, segmented
+  filter, area chips, and "Edit all" grouped rows with confirmation.
+- **Sensor faults**: readings above 60 °C show "Sensor fault" in red instead of
+  a number; missing readings show `--`.
+- Responsive: dense grids on desktop, a 2-column dial grid on phones.
 
 ## How it works
 

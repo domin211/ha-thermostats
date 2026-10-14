@@ -90,7 +90,10 @@ const PRETTY: Record<string, string> = {
 
 export function displayName(c: Climate): string {
   if (PRETTY[c.id]) return PRETTY[c.id];
-  const n = c.name;
+  const n = c.name
+    .replace(/^Pokoj (\d+)$/i, "Room $1")
+    .replace(/^(?:Koupelna (\d+)|(\d+) Koupelna)$/i, (_, a, b) => `Bathroom ${a ?? b}`)
+    .replace(/^(?:WC (\d+)|(\d+) WC)$/i, (_, a, b) => `WC ${a ?? b}`);
   // Turn SHOUTING names into sentence case, keep accents.
   if (n === n.toUpperCase() && /[A-Z]/.test(n)) {
     const s = n.toLowerCase().replace(/,/g, ", ").replace(/\s+/g, " ");
