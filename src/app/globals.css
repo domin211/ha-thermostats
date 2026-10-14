@@ -93,13 +93,26 @@ button:disabled { cursor: default; opacity: .4; }
 
 .rooms { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 36px 40px; }
 .room-title { font-size: 13px; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: .04em; margin: 0 0 12px 4px; }
-.dials { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 28px 20px; }
+.dials { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 32px 20px; }
 .dials-flat { grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 36px 24px; }
 
-.tile { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; border-radius: 24px; padding: 4px; transition: transform .15s; }
-.tile:hover .dial-face { fill: #161618; }
-.tile:active { transform: scale(.97); }
-.tile .dial-wrap { width: 100%; max-width: 176px; margin-bottom: 10px; }
+.tile { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; min-width: 0; }
+.tile .dial-wrap { width: 100%; max-width: 176px; }
+.tile-ctl { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 10px 0 8px; }
+.mini-round { width: 30px; height: 30px; border-radius: 50%; background: var(--fill-2); display: grid; place-items: center; }
+.mini-round:hover:not(:disabled) { background: var(--fill-3); }
+.mini-round svg { width: 14px; height: 14px; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; }
+.toggle-sm { width: 40px; height: 24px; border-radius: 12px; }
+.toggle-sm span { width: 20px; height: 20px; }
+.toggle-sm.is-on span { transform: translateX(16px); }
+.dial-icon { pointer-events: auto; display: grid; place-items: center; border-radius: 50%; padding: 2cqi; margin-top: 1cqi; }
+.dial-icon .ico { margin-top: 0; }
+.dial-icon:hover:not(:disabled) { background: rgba(255,255,255,.06); }
+.dial-small { font-size: 8cqi; color: var(--text-2); margin-top: 1.5cqi; font-weight: 500; }
+.dial-small.is-pending { color: var(--orange); }
+.modes-mini { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; padding: 2px; margin-top: 8px; border-radius: 8px; background: var(--fill); max-width: 100%; }
+.modes-mini button { flex: none; height: 26px; padding: 0 7px; border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--text-2); }
+.modes-mini button.is-on { background: var(--fill-3); color: #fff; }
 .tile-name { font-size: 15px; font-weight: 600; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tile-sub { font-size: 13px; color: var(--text-2); }
 .tile-sub.tone-heat { color: var(--orange); }
@@ -109,7 +122,10 @@ button:disabled { cursor: default; opacity: .4; }
 
 /* Dial */
 .dial-wrap { position: relative; aspect-ratio: 1; }
-.dial { display: block; width: 100%; height: 100%; overflow: visible; touch-action: none; }
+.dial { display: block; width: 100%; height: 100%; overflow: visible; }
+.dial-hit { fill: none; stroke: transparent; pointer-events: stroke; touch-action: none; cursor: grab; outline: none; }
+.dial-hit:active { cursor: grabbing; }
+.dial-hit:focus-visible { stroke: rgba(10,132,255,.35); }
 .dial-face { fill: #0e0e0f; stroke: #2a2a2d; stroke-width: 1.2; transition: fill .15s; }
 .dial-track { fill: none; stroke: #3a3a3c; stroke-linecap: round; }
 .dial-arc { fill: none; stroke: #fff; stroke-linecap: round; transition: d .25s; }
@@ -118,8 +134,6 @@ button:disabled { cursor: default; opacity: .4; }
 .dial-fault .dial-arc { stroke: var(--red); opacity: .8; }
 .dial-off .dial-track { stroke: #1c1c1e; }
 .dial-fan .dial-arc { stroke: #fff; }
-.dial-drag { cursor: grab; }
-.dial-drag:active { cursor: grabbing; }
 .dial-knob { fill: #000; stroke: #fff; stroke-width: 4; }
 .dial-center {
   position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -161,27 +175,6 @@ button:disabled { cursor: default; opacity: .4; }
 .toggle span { position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,.25); transition: transform .2s; }
 .toggle.is-on { background: var(--green); }
 .toggle.is-on span { transform: translateX(20px); }
-
-/* Detail sheet */
-.sheet { position: fixed; inset: 0; z-index: 50; background: #000; overflow-y: auto; animation: rise .22s ease-out; }
-@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-.sheet-inner { max-width: 460px; margin: 0 auto; padding: calc(env(safe-area-inset-top) + 12px) 20px 48px; display: flex; flex-direction: column; gap: 20px; }
-.sheet-bar { height: 44px; display: flex; align-items: center; }
-.back { display: inline-flex; align-items: center; gap: 6px; color: var(--blue); font-size: 17px; margin-left: -4px; }
-.back svg { width: 11px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-.sheet-title { margin: -8px 0 0; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; text-align: center; }
-.sheet-sub { margin: -16px 0 0; text-align: center; color: var(--text-2); }
-.big-dial { width: min(78vw, 340px); margin: 4px auto 0; }
-.steppers { display: flex; align-items: center; justify-content: space-between; padding: 0 12px; margin-top: -6px; }
-.round-btn { width: 56px; height: 56px; border-radius: 50%; background: var(--fill-2); display: grid; place-items: center; }
-.round-btn:hover:not(:disabled) { background: var(--fill-3); }
-.round-btn svg { width: 20px; height: 20px; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; }
-.now { display: flex; flex-direction: column; align-items: center; }
-.now-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-2); }
-.now-val { font-size: 22px; font-weight: 300; }
-.tone-fault { color: var(--red); }
-.fan-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.fan-block .dial-wrap { width: 150px; }
 
 .foot { margin-top: 72px; color: var(--text-3); font-size: 13px; text-align: center; }
 

@@ -22,9 +22,7 @@ that file; this app adapts it to a multi-zone building.
   snowflake/drop for cooling/drying, grey when idle. Off zones are greyed out
   with no arc. Cooling arcs use the blue-to-red gradient from the reference.
   AC fan speed is shown as a dashed ring.
-- **Detail view**: tap a dial for a full-screen single dial. Drag the arc (or
-  use the round −/+ buttons) to set the temperature; iOS pill toggle (green)
-  for power and a segmented control for AC modes; info in grouped rows.
+- **Inline control**: drag the ring of any dial to set the target (sent on release), small −/+ buttons for 0.5° steps, a pill toggle (or tap the icon) for on/off, and a compact mode selector under each AC unit. Only the ring captures touch, so the page scrolls normally on phones.
 - **Search, filters and group actions** are iOS-style: search field, segmented
   filter, area chips, and "Edit all" grouped rows with confirmation.
 - **Sensor faults**: readings above 60 °C show "Sensor fault" in red instead of

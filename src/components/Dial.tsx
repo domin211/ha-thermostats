@@ -137,40 +137,8 @@ export function Dial({ c, value, size = "sm", onDrag, center, arc }: DialProps) 
       ref={svg}
       viewBox={`0 0 ${W} ${W}`}
       className={`dial dial-${size} dial-${tone}${drag ? " dial-drag" : ""}`}
-      onPointerDown={
-        drag
-          ? (e) => {
-              dragging.current = true;
-              (e.target as Element).setPointerCapture?.(e.pointerId);
-              const v = toValue(e);
-              if (v !== null) onDrag!(v, false);
-            }
-          : undefined
-      }
-      onPointerMove={
-        drag
-          ? (e) => {
-              if (!dragging.current) return;
-              const v = toValue(e);
-              if (v !== null) onDrag!(v, false);
-            }
-          : undefined
-      }
-      onPointerUp={
-        drag
-          ? (e) => {
-              if (!dragging.current) return;
-              dragging.current = false;
-              const v = toValue(e);
-              if (v !== null) onDrag!(v, true);
-            }
-          : undefined
-      }
-      role={drag ? "slider" : "img"}
+      role="img"
       aria-label={`${c.name}: ${r.kind === "ok" ? r.value.toFixed(1) + " degrees" : r.kind === "fault" ? "sensor fault" : "no reading"}`}
-      aria-valuenow={drag ? (target ?? undefined) : undefined}
-      aria-valuemin={drag ? c.min : undefined}
-      aria-valuemax={drag ? c.max : undefined}
     >
       <defs>
         <linearGradient id={`g${gid}`} x1="0" y1="1" x2="1" y2="0">
@@ -185,6 +153,47 @@ export function Dial({ c, value, size = "sm", onDrag, center, arc }: DialProps) 
         <path d={arcPath(W / 2, W / 2, R, START, end)} className="dial-arc" strokeWidth={SW} style={tone === "cool" ? { stroke: `url(#g${gid})` } : undefined} />
       )}
       {on && drag && knob && <circle cx={knob[0]} cy={knob[1]} r={SW / 2 + 3} className="dial-knob" />}
+      {drag && (
+        // Only the ring captures touches (touch-action: none); the face and the rest of the page scroll normally.
+        <path
+          d={arcPath(W / 2, W / 2, R, START, START + SWEEP)}
+          className="dial-hit"
+          strokeWidth={44}
+          role="slider"
+          tabIndex={0}
+          aria-label={`${c.name} target temperature`}
+          aria-valuenow={target ?? undefined}
+          aria-valuemin={c.min}
+          aria-valuemax={c.max}
+          onKeyDown={(e) => {
+            if (target === null) return;
+            const d = e.key === "ArrowUp" || e.key === "ArrowRight" ? 1 : e.key === "ArrowDown" || e.key === "ArrowLeft" ? -1 : 0;
+            if (!d) return;
+            e.preventDefault();
+            onDrag!(Math.min(c.max, Math.max(c.min, target + d * (c.step || 0.5))), true);
+          }}
+          onPointerDown={(e) => {
+            dragging.current = true;
+            (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
+            const v = toValue(e);
+            if (v !== null) onDrag!(v, false);
+          }}
+          onPointerMove={(e) => {
+            if (!dragging.current) return;
+            const v = toValue(e);
+            if (v !== null) onDrag!(v, false);
+          }}
+          onPointerUp={(e) => {
+            if (!dragging.current) return;
+            dragging.current = false;
+            const v = toValue(e);
+            if (v !== null) onDrag!(v, true);
+          }}
+          onPointerCancel={() => {
+            dragging.current = false;
+          }}
+        />
+      )}
     </svg>
       <div className="dial-center">{center}</div>
     </div>

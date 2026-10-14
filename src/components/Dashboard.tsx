@@ -14,7 +14,7 @@ import {
   reading,
 } from "@/lib/areas";
 import type { AreaKey, Climate, ControlRequest, StatesResponse } from "@/lib/types";
-import { Dial, FanRing, ToneIcon, toneOf } from "./Dial";
+import { Dial, ToneIcon, toneOf } from "./Dial";
 import { useClimates } from "./useClimates";
 
 type Filter = "all" | "on" | "heating" | "fault";
@@ -54,27 +54,10 @@ export function statusLine(c: Climate): string {
 function tileLine(c: Climate): string {
   if (c.unavailable) return "Unavailable";
   if (c.state === "off") return "Off";
-  const set = c.target !== null ? `${fmt(c.target)}°` : MODE_LABEL[c.state] ?? c.state;
-  if (c.action === "heating") return `${set} · Heating`;
-  if (c.action === "cooling") return `${set} · Cooling`;
-  if (isAc(c)) return `${set} · ${MODE_LABEL[c.state] ?? c.state}`;
-  return `${set} · Idle`;
-}
-
-function DialCenter({ c, big }: { c: Climate; big?: boolean }) {
-  const r = reading(c);
-  return (
-    <>
-      {r.kind === "ok" ? (
-        <span className="dial-num">{big ? r.value.toFixed(1) : Math.round(r.value * 10) / 10}</span>
-      ) : r.kind === "fault" ? (
-        <span className="dial-fault">Sensor<br />fault</span>
-      ) : (
-        <span className="dial-num dial-num-none">--</span>
-      )}
-      <ToneIcon c={c} />
-    </>
-  );
+  if (c.action === "heating") return "Heating";
+  if (c.action === "cooling") return "Cooling";
+  if (isAc(c)) return MODE_LABEL[c.state] ?? c.state;
+  return "Idle";
 }
 
 export function Dashboard({ initial }: { initial: StatesResponse | null }) {
@@ -82,7 +65,6 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
   const [q, setQ] = useState("");
   const [filter, setFilter] = useState<Filter>("all");
   const [area, setArea] = useState<AreaKey | "all">("all");
-  const [openId, setOpenId] = useState<string | null>(null);
 
   const byArea = useMemo(() => {
     const m: Record<AreaKey, Climate[]> = { rooms: [], common: [], wellness: [], staff: [], ac: [] };
@@ -104,15 +86,8 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
   const guardedSend: Send = (r) => {
     if (!readOnly) send(r);
   };
-  const open = openId ? climates.find((c) => c.id === openId) ?? null : null;
 
-  const tile = (c: Climate, label: string) => (
-    <button key={c.id} type="button" className="tile" onClick={() => setOpenId(c.id)}>
-      <Dial c={c} center={<DialCenter c={c} />} arc={{ value: (() => { const r = reading(c); return r.kind === "ok" ? r.value : null; })(), min: 10, max: 30 }} />
-      <span className="tile-name">{label}</span>
-      <span className={`tile-sub tone-${toneOf(c)}`}>{tileLine(c)}</span>
-    </button>
-  );
+  const tile = (c: Climate, label: string) => <Tile key={c.id} c={c} label={label} send={guardedSend} readOnly={readOnly} />;
 
   return (
     <div className="shell">
@@ -195,137 +170,113 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
 
       <footer className="foot">Readings above 60° are shown as sensor faults. Design after “Apple Thermostat” by Takistar.</footer>
 
-      {open && <Detail c={open} send={guardedSend} readOnly={readOnly} onClose={() => setOpenId(null)} />}
     </div>
   );
 }
 
-function Toggle({ on, onChange, label, disabled }: { on: boolean; onChange: () => void; label: string; disabled?: boolean }) {
-  return (
-    <button type="button" role="switch" aria-checked={on} aria-label={label} className={`toggle${on ? " is-on" : ""}`} onClick={onChange} disabled={disabled}>
-      <span />
-    </button>
-  );
-}
+const SHORT: Record<string, string> = { off: "Off", heat: "Heat", cool: "Cool", dry: "Dry", auto: "Auto", fan_only: "Fan", heat_cool: "H/C" };
 
-function Detail({ c, send, onClose, readOnly }: { c: Climate; send: Send; onClose: () => void; readOnly: boolean }) {
+function Tile({ c, label, send, readOnly }: { c: Climate; label: string; send: Send; readOnly: boolean }) {
   const [pending, setPending] = useState<number | null>(null);
+  const [dragging, setDragging] = useState(false);
   const t = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(() => {
-    const k = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    window.addEventListener("keydown", k);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", k);
-      document.body.style.overflow = "";
-      if (t.current) clearTimeout(t.current);
-    };
-  }, [onClose]);
+  useEffect(() => () => void (t.current && clearTimeout(t.current)), []);
 
-  const target = pending ?? c.target;
+  const r = reading(c);
   const on = c.state !== "off" && !c.unavailable;
+  const target = pending ?? c.target;
   const canSet = on && target !== null && !readOnly;
+  const ac = isAc(c);
+  const onMode = ac ? (c.modes.includes("cool") ? "cool" : c.modes.find((m) => m !== "off") ?? "heat") : "heat";
+
   const commit = (v: number, delay: number) => {
     setPending(v);
     if (t.current) clearTimeout(t.current);
     t.current = setTimeout(() => {
       send({ action: "set_temperature", entityIds: [c.id], temperature: v });
-      setTimeout(() => setPending(null), 600);
+      setTimeout(() => setPending(null), 1500);
     }, delay);
   };
   const bump = (d: 1 | -1) => {
     if (target === null) return;
-    commit(Math.min(c.max, Math.max(c.min, Math.round((target + d * (c.step || 0.5)) * 10) / 10)), 650);
+    commit(Math.min(c.max, Math.max(c.min, Math.round((target + d * (c.step || 0.5)) * 10) / 10)), 700);
   };
-  const r = reading(c);
-  const ac = isAc(c);
-  const onMode = ac ? (c.modes.includes("cool") ? "cool" : c.modes.find((m) => m !== "off") ?? "heat") : "heat";
-  const fanLevels = ["low", "low_mid", "mid", "medium", "mid_high", "high", "turbo"];
-  const fanIdx = c.fanMode ? fanLevels.indexOf(c.fanMode) : -1;
+  const toggle = () => !readOnly && !c.unavailable && send({ action: "set_hvac_mode", entityIds: [c.id], mode: on ? "off" : onMode });
+
+  const nowTxt = r.kind === "ok" ? `${r.value.toFixed(1)}°` : r.kind === "fault" ? "fault" : "--°";
+  let big: React.ReactNode;
+  let small: React.ReactNode;
+  if (dragging && target !== null) {
+    big = <span className="dial-num">{fmt(target)}</span>;
+    small = <span className="dial-small">now {nowTxt}</span>;
+  } else if (r.kind === "fault") {
+    big = <span className="dial-fault">Sensor<br />fault</span>;
+    small = on && target !== null ? <span className="dial-small">set {fmt(target)}°</span> : null;
+  } else {
+    big = <span className={`dial-num${r.kind === "none" ? " dial-num-none" : ""}`}>{r.kind === "ok" ? r.value.toFixed(1) : "--"}</span>;
+    small = on && target !== null ? <span className={`dial-small${pending !== null ? " is-pending" : ""}`}>set {fmt(target)}°</span> : null;
+  }
 
   return (
-    <div className="sheet" role="dialog" aria-modal="true" aria-label={displayName(c)}>
-      <div className="sheet-inner">
-        <div className="sheet-bar">
-          <button type="button" className="back" onClick={onClose}>
-            <svg viewBox="0 0 12 20" aria-hidden><path d="M10 2 2 10l8 8" /></svg>
-            Back
-          </button>
-        </div>
-        <h2 className="sheet-title">{displayName(c)}</h2>
-        <p className="sheet-sub">{statusLine(c)}</p>
-
-        <div className="big-dial">
-          <Dial
-            c={c}
-            size="lg"
-            value={pending}
-            onDrag={canSet ? (v, done) => commit(v, done ? 150 : 100000) : undefined}
-            center={
-              <>
-                <span className="dial-label">{on ? "Set to" : "Off"}</span>
-                <span className="dial-num dial-num-lg">{on ? fmt(target) : "--"}</span>
-                <ToneIcon c={c} />
-              </>
-            }
-          />
-        </div>
-        <div className="steppers">
-          <button type="button" className="round-btn" onClick={() => bump(-1)} disabled={!canSet || target! <= c.min} aria-label="Lower">
-            <svg viewBox="0 0 20 20" aria-hidden><path d="M4 10h12" /></svg>
-          </button>
-          <div className="now">
-            <span className="now-label">Now</span>
-            <span className={`now-val${r.kind === "fault" ? " tone-fault" : ""}`}>
-              {r.kind === "ok" ? `${r.value.toFixed(1)}°` : r.kind === "fault" ? "Sensor fault" : "--°"}
-            </span>
-          </div>
-          <button type="button" className="round-btn" onClick={() => bump(1)} disabled={!canSet || target! >= c.max} aria-label="Raise">
-            <svg viewBox="0 0 20 20" aria-hidden><path d="M4 10h12M10 4v12" /></svg>
-          </button>
-        </div>
-
-        <div className="group">
-          <div className="row">
-            <span>Power</span>
-            <Toggle on={on} label="Power" disabled={readOnly || c.unavailable} onChange={() => send({ action: "set_hvac_mode", entityIds: [c.id], mode: on ? "off" : onMode })} />
-          </div>
-          {ac && (
-            <div className="row row-stack">
-              <span>Mode</span>
-              <div className="segmented segmented-full" role="radiogroup" aria-label="Mode">
-                {c.modes.map((m) => (
-                  <button
-                    key={m}
-                    type="button"
-                    role="radio"
-                    aria-checked={c.state === m}
-                    className={c.state === m ? "is-on" : ""}
-                    disabled={readOnly || c.unavailable}
-                    onClick={() => c.state !== m && send({ action: "set_hvac_mode", entityIds: [c.id], mode: m })}
-                  >
-                    {MODE_LABEL[m] ?? m}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-
-        {ac && c.fanMode && (
-          <div className="fan-block">
-            <FanRing levels={fanIdx >= 0 ? 6 : 6} active={fanIdx >= 0 ? Math.max(1, Math.round(((fanIdx + 1) / fanLevels.length) * 6)) : 6} label={c.fanMode === "auto" ? "Auto" : c.fanMode.replace(/_/g, " ")} />
-            <span className="tile-sub">Fan speed</span>
-          </div>
-        )}
-
-        <div className="group">
-          <div className="row"><span>Current</span><span className="row-val">{r.kind === "ok" ? `${r.value.toFixed(1)}°C` : r.kind === "fault" ? `Fault (${r.raw}°)` : "No reading"}</span></div>
-          <div className="row"><span>Target</span><span className="row-val">{c.target === null ? "--" : `${c.target.toFixed(1)}°C`}</span></div>
-          <div className="row"><span>Range</span><span className="row-val">{c.min}° – {c.max}°</span></div>
-          <div className="row"><span>Entity</span><span className="row-val mono">{c.id}</span></div>
-        </div>
+    <div className="tile">
+      <Dial
+        c={c}
+        value={pending}
+        onDrag={
+          canSet
+            ? (v, done) => {
+                setDragging(!done);
+                if (done) commit(v, 0);
+                else {
+                  if (t.current) clearTimeout(t.current);
+                  setPending(v);
+                }
+              }
+            : undefined
+        }
+        center={
+          <>
+            {big}
+            {small}
+            <button type="button" className="dial-icon" onClick={toggle} disabled={readOnly || c.unavailable} aria-label={`Turn ${label} ${on ? "off" : "on"}`}>
+              <ToneIcon c={c} />
+            </button>
+          </>
+        }
+      />
+      <div className="tile-ctl">
+        <button type="button" className="mini-round" onClick={() => bump(-1)} disabled={!canSet || target! <= c.min} aria-label={`Lower ${label}`}>
+          <svg viewBox="0 0 20 20" aria-hidden><path d="M5 10h10" /></svg>
+        </button>
+        <button type="button" role="switch" aria-checked={on} aria-label={`${label} power`} className={`toggle toggle-sm${on ? " is-on" : ""}`} onClick={toggle} disabled={readOnly || c.unavailable}>
+          <span />
+        </button>
+        <button type="button" className="mini-round" onClick={() => bump(1)} disabled={!canSet || target! >= c.max} aria-label={`Raise ${label}`}>
+          <svg viewBox="0 0 20 20" aria-hidden><path d="M5 10h10M10 5v10" /></svg>
+        </button>
       </div>
+      <span className="tile-name" title={`${c.name} · ${c.id}`}>{label}</span>
+      <span className={`tile-sub tone-${toneOf(c)}`}>{tileLine(c)}</span>
+      {ac && (
+        <div className="modes-mini" role="radiogroup" aria-label={`${label} mode`}>
+          {c.modes
+            .filter((m) => m !== "off")
+            .sort((a, b) => ["auto", "heat_cool", "cool", "heat", "dry", "fan_only"].indexOf(a) - ["auto", "heat_cool", "cool", "heat", "dry", "fan_only"].indexOf(b))
+            .map((m) => (
+            <button
+              key={m}
+              type="button"
+              role="radio"
+              aria-checked={c.state === m}
+              className={c.state === m ? "is-on" : ""}
+              disabled={readOnly || c.unavailable}
+              onClick={() => c.state !== m && send({ action: "set_hvac_mode", entityIds: [c.id], mode: m })}
+            >
+              {SHORT[m] ?? m}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
