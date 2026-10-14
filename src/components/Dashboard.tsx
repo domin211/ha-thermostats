@@ -7,24 +7,14 @@ import type { AreaKey, Climate, ControlRequest, StatesResponse } from "@/lib/typ
 import { Dial, ToneIcon } from "./Dial";
 import { useClimates } from "./useClimates";
 
-type Filter = "all" | "on" | "heating" | "fault";
 type Send = (r: ControlRequest) => void;
 
 const STEP = 1;
 
-const FILTERS: { key: Filter; label: string }[] = [
-  { key: "all", label: "Vše" },
-  { key: "on", label: "Zapnuté" },
-  { key: "heating", label: "Topí" },
-  { key: "fault", label: "Poruchy" },
-];
 
 const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
-function matches(c: Climate, q: string, f: Filter) {
-  if (f === "on" && !isOn(c)) return false;
-  if (f === "heating" && !isHeating(c) && c.action !== "cooling") return false;
-  if (f === "fault" && reading(c).kind === "ok") return false;
+function matches(c: Climate, q: string) {
   if (!q) return true;
   const hay = norm(`${c.name} ${displayName(c)} ${c.id}`);
   return norm(q).split(/\s+/).every((t) => hay.includes(t));
@@ -62,7 +52,6 @@ interface Group {
   zones: Zone[];
 }
 
-const czPlural = (n: number, one: string, few: string, many: string) => (n === 1 ? one : n >= 2 && n <= 4 ? few : many);
 
 /** Turn room groups into display groups: room 1 is the office, rooms 14 + 15 are one physical room. */
 function buildGroups(groups: RoomGroup[]): Group[] {
@@ -100,14 +89,10 @@ function buildGroups(groups: RoomGroup[]): Group[] {
   return out;
 }
 
-function clock(iso?: string) {
-  return iso ? new Date(iso).toLocaleTimeString("cs-CZ", { hour: "2-digit", minute: "2-digit" }) : "";
-}
 
 export function Dashboard({ initial }: { initial: StatesResponse | null }) {
-  const { data, climates, error, fetchError, busy, send } = useClimates(initial);
+  const { data, climates, error, fetchError, send } = useClimates(initial);
   const [q, setQ] = useState("");
-  const [filter, setFilter] = useState<Filter>("all");
   const [area, setArea] = useState<AreaKey | "all">("all");
 
   const byArea = useMemo(() => {
@@ -116,15 +101,6 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
     return m;
   }, [climates]);
 
-  const stats = useMemo(
-    () => ({
-      total: climates.length,
-      on: climates.filter(isOn).length,
-      heating: climates.filter(isHeating).length,
-      faults: climates.filter((c) => reading(c).kind === "fault").length,
-    }),
-    [climates],
-  );
 
   const readOnly = data?.readOnly ?? false;
   const connected = data?.source === "live" && !fetchError;
@@ -135,29 +111,15 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
   return (
     <div className="shell">
       <header className="hero">
-        <div className="hero-meta">
-          <span className={`dot ${connected ? "dot-ok" : "dot-err"}`} />
-          <span>{connected ? "Home Assistant" : "Odpojeno"}</span>
-          {data?.fetchedAt && <span className="hero-time">aktualizováno {clock(data.fetchedAt)}</span>}
-          {busy && <span className="hero-time">· odesílám</span>}
-        </div>
-        <h1 className="hero-title">U Fandy Topení</h1>
-        <div className="hero-stats">
-          <div className="stat">
-            <span className="stat-num">{stats.heating}</span>
-            <span className="stat-label">{czPlural(stats.heating, "topí", "topí", "topí")}</span>
-          </div>
-          <div className="stat">
-            <span className="stat-num stat-neutral">{stats.on}</span>
-            <span className="stat-label">zapnuto z {stats.total}</span>
-          </div>
-          {stats.faults > 0 && (
-            <div className="stat">
-              <span className="stat-num stat-fault">{stats.faults}</span>
-              <span className="stat-label">{czPlural(stats.faults, "porucha čidla", "poruchy čidel", "poruch čidel")}</span>
-            </div>
-          )}
-        </div>
+        <h1 className="hero-title">
+          U Fandy Topení
+          <span
+            className={`dot hero-dot ${connected ? "dot-ok" : "dot-err"}`}
+            role="img"
+            title={connected ? "Připojeno k Home Assistant" : "Odpojeno"}
+            aria-label={connected ? "Připojeno k Home Assistant" : "Odpojeno"}
+          />
+        </h1>
       </header>
 
       {(error || readOnly) && (
@@ -171,13 +133,6 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
           <svg viewBox="0 0 16 16" aria-hidden><circle cx="7" cy="7" r="5" /><path d="M11 11l3.5 3.5" /></svg>
           <input type="search" placeholder="Hledat" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Hledat zóny" />
         </label>
-        <div className="segmented" role="tablist" aria-label="Filtr">
-          {FILTERS.map((f) => (
-            <button key={f.key} type="button" role="tab" aria-selected={filter === f.key} className={filter === f.key ? "is-on" : ""} onClick={() => setFilter(f.key)}>
-              {f.label}
-            </button>
-          ))}
-        </div>
       </div>
 
       <nav className="chips" aria-label="Oblasti">
@@ -192,7 +147,7 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
       <main>
         {AREAS.filter((a) => area === "all" || area === a.key).map((a) => {
           const all = byArea[a.key];
-          const shown = all.filter((c) => matches(c, q, filter));
+          const shown = all.filter((c) => matches(c, q));
           if (shown.length === 0) return null;
           const on = all.filter(isOn).length;
           return (
