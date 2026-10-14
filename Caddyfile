@@ -1,0 +1,15 @@
+topeni.ufandy.eu {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+	reverse_proxy thermostats:3000
+}
+
+# Plain IP / any other host on port 80: send to the canonical HTTPS URL
+http:// {
+	redir https://topeni.ufandy.eu{uri} permanent
+}

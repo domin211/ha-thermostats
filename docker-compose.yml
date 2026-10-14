@@ -8,5 +8,24 @@ services:
     environment:
       - PORT=3000
       - HOSTNAME=0.0.0.0
+    expose:
+      - "3000"
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: ha-thermostats-caddy
+    restart: unless-stopped
+    depends_on:
+      - thermostats
     ports:
-      - "${PORT:-3000}:3000"
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

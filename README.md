@@ -65,6 +65,7 @@ The image uses Next's `output: 'standalone'` build and runs as a non-root
 user. `restart: unless-stopped` keeps it up across reboots. `PORT` in `.env`
 selects the published host port.
 
-Note: the app is served over plain HTTP unless you put a TLS proxy (Caddy,
-Traefik, nginx) in front of it. Do that before using it outside a trusted
-network.
+Caddy (in the same compose file) terminates TLS for `topeni.ufandy.eu` with
+automatic Let's Encrypt certificates on ports 80/443 and proxies to the app,
+which is only reachable inside the compose network. HTTP and plain-IP requests
+redirect to `https://topeni.ufandy.eu`. Change the domain in `Caddyfile`.
