@@ -1,0 +1,12 @@
+services:
+  thermostats:
+    build: .
+    image: ha-thermostats:latest
+    container_name: ha-thermostats
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    ports:
+      - "${PORT:-3000}:3000"

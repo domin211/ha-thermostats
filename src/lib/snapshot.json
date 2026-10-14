@@ -1,0 +1,2312 @@
+[
+ {
+  "entity_id": "climate.06_pokoj",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 0.5,
+   "current_temperature": 22.9,
+   "temperature": 23.0,
+   "hvac_action": "idle",
+   "friendly_name": "Pokoj 6",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.190113+00:00",
+  "last_reported": "2026-10-14T05:46:27.749244+00:00",
+  "last_updated": "2026-10-14T05:46:27.749244+00:00",
+  "context": {
+   "id": "01M4WF58H54MW1WZG0BWMB3FTZ",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.06_koupelna",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 23.3,
+   "temperature": 23.0,
+   "hvac_action": "heating",
+   "friendly_name": "Koupelna 6",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-13T06:27:50.338313+00:00",
+  "last_reported": "2026-10-14T04:39:41.920689+00:00",
+  "last_updated": "2026-10-14T04:39:41.920689+00:00",
+  "context": {
+   "id": "01M4WBB0K0GCKEQ50ZMZDQ8V5W",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.07_pokoj",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 0.5,
+   "current_temperature": 18.8,
+   "temperature": 16.0,
+   "hvac_action": "idle",
+   "friendly_name": "Pokoj 7",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.191511+00:00",
+  "last_reported": "2026-10-13T23:24:25.539017+00:00",
+  "last_updated": "2026-10-13T23:24:25.539017+00:00",
+  "context": {
+   "id": "01M4VS9QJ3E1X5P7FX9J4KQ5AZ",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.07_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 19.8,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 7",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.191866+00:00",
+  "last_reported": "2026-10-14T05:16:18.514487+00:00",
+  "last_updated": "2026-10-14T05:16:18.514487+00:00",
+  "context": {
+   "id": "01M4WDE1PJA7B4B0GXPZ3R7T28",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.08_pokoj",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 0.5,
+   "current_temperature": 19.5,
+   "temperature": 16.0,
+   "hvac_action": "idle",
+   "friendly_name": "Pokoj 8",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.197348+00:00",
+  "last_reported": "2026-10-14T01:42:16.568349+00:00",
+  "last_updated": "2026-10-14T01:42:16.568349+00:00",
+  "context": {
+   "id": "01M4W164QRQ9BCPP6WTE4N6Z2J",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.08_koupelna",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 0.5,
+   "current_temperature": null,
+   "temperature": 16.0,
+   "hvac_action": "idle",
+   "friendly_name": "Koupelna 8",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.198224+00:00",
+  "last_reported": "2026-10-12T16:39:17.198224+00:00",
+  "last_updated": "2026-10-12T16:39:17.198224+00:00",
+  "context": {
+   "id": "01M4RFQ5YEJZE8CYS5DHECX6HZ",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.09_pokoj",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 0.5,
+   "current_temperature": 18.9,
+   "temperature": 16.0,
+   "hvac_action": "idle",
+   "friendly_name": "Pokoj 9",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.203712+00:00",
+  "last_reported": "2026-10-14T04:24:44.328593+00:00",
+  "last_updated": "2026-10-14T04:24:44.328593+00:00",
+  "context": {
+   "id": "01M4WAFM18N2B7532TYN5ZFT25",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.09_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 20.4,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 9",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.204165+00:00",
+  "last_reported": "2026-10-14T05:57:05.892874+00:00",
+  "last_updated": "2026-10-14T05:57:05.892874+00:00",
+  "context": {
+   "id": "01M4WFRQQ47BCPMXYT8CKB599C",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.cervena_chodba_priz",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 18.0,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Cervena chodba priz.",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.204722+00:00",
+  "last_reported": "2026-10-14T05:57:05.893397+00:00",
+  "last_updated": "2026-10-14T05:57:05.893397+00:00",
+  "context": {
+   "id": "01M4WFRQQ5KYFYMG8QYY4RAT2Z",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.cervena_schodiste",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 17.5,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Cervena schodiste",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.205255+00:00",
+  "last_reported": "2026-10-14T05:48:57.848264+00:00",
+  "last_updated": "2026-10-14T05:48:57.848264+00:00",
+  "context": {
+   "id": "01M4WF9V3R1SJWTV6NKJTXDD9F",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.10_pokoj",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 0.5,
+   "current_temperature": 19.3,
+   "temperature": 16.0,
+   "hvac_action": "idle",
+   "friendly_name": "Pokoj 10",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.205589+00:00",
+  "last_reported": "2026-10-14T04:24:55.313647+00:00",
+  "last_updated": "2026-10-14T04:24:55.313647+00:00",
+  "context": {
+   "id": "01M4WAFYRH50MQXQYTJJD4WXP1",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.10_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.8,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 10",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.211005+00:00",
+  "last_reported": "2026-10-14T05:17:19.347159+00:00",
+  "last_updated": "2026-10-14T05:17:19.347159+00:00",
+  "context": {
+   "id": "01M4WDFX3KKJ0PPHSMBC44EQGB",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.11_pokoj",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 0.5,
+   "current_temperature": 18.9,
+   "temperature": 16.0,
+   "hvac_action": "idle",
+   "friendly_name": "Pokoj 11",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.211534+00:00",
+  "last_reported": "2026-10-14T02:36:34.518682+00:00",
+  "last_updated": "2026-10-14T02:36:34.518682+00:00",
+  "context": {
+   "id": "01M4W49JAP3MTMNVYA930TBYCC",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.11_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 20.1,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 11",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.211818+00:00",
+  "last_reported": "2026-10-14T03:29:23.875676+00:00",
+  "last_updated": "2026-10-14T03:29:23.875676+00:00",
+  "context": {
+   "id": "01M4W7A9D39H2NBE7ABYVZNQ58",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.14_pokoj",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 0.5,
+   "current_temperature": 20.3,
+   "temperature": 16.0,
+   "hvac_action": "idle",
+   "friendly_name": "Pokoj 14",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.212087+00:00",
+  "last_reported": "2026-10-14T05:56:28.160963+00:00",
+  "last_updated": "2026-10-14T05:56:28.160963+00:00",
+  "context": {
+   "id": "01M4WFQJW0GC4DPTG8X7TA6WQP",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.14_koupelna",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 23.0,
+   "temperature": 23.0,
+   "hvac_action": "heating",
+   "friendly_name": "Koupelna 14",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.217535+00:00",
+  "last_reported": "2026-10-14T05:57:05.894225+00:00",
+  "last_updated": "2026-10-14T05:57:05.894225+00:00",
+  "context": {
+   "id": "01M4WFRQQ629GW051WYAWY7KR4",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.14_wc",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.1,
+   "temperature": 23.0,
+   "hvac_action": "heating",
+   "friendly_name": "WC 14",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.217840+00:00",
+  "last_reported": "2026-10-14T05:56:04.909951+00:00",
+  "last_updated": "2026-10-14T05:56:04.909951+00:00",
+  "context": {
+   "id": "01M4WFPW5DA8F29DRMCJXQEE6R",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.cervena_chodba_patro",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 22.1,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Cervena chodba patro",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.223277+00:00",
+  "last_reported": "2026-10-14T05:19:21.563098+00:00",
+  "last_updated": "2026-10-14T05:19:21.563098+00:00",
+  "context": {
+   "id": "01M4WDKMEVBW669YMBZXMFFWSZ",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.12_pokoj",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 0.5,
+   "current_temperature": 19.2,
+   "temperature": 16.0,
+   "hvac_action": "idle",
+   "friendly_name": "Pokoj 12",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.223762+00:00",
+  "last_reported": "2026-10-14T01:41:22.465786+00:00",
+  "last_updated": "2026-10-14T01:41:22.465786+00:00",
+  "context": {
+   "id": "01M4W14FX1ZAPYN6XH53JX18DN",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.12_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 20.3,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 12",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.224047+00:00",
+  "last_reported": "2026-10-14T05:56:04.910215+00:00",
+  "last_updated": "2026-10-14T05:56:04.910215+00:00",
+  "context": {
+   "id": "01M4WFPW5ESTPP4Y7F67X4K844",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.13_pokoj",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 0.5,
+   "current_temperature": 19.4,
+   "temperature": 16.0,
+   "hvac_action": "idle",
+   "friendly_name": "Pokoj 13",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.229474+00:00",
+  "last_reported": "2026-10-14T01:05:14.652445+00:00",
+  "last_updated": "2026-10-14T01:05:14.652445+00:00",
+  "context": {
+   "id": "01M4VZ2AWWRMBNEMGX3JP0DAR4",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.13_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 19.6,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "13 Koupelna",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.229920+00:00",
+  "last_reported": "2026-10-14T05:55:03.969864+00:00",
+  "last_updated": "2026-10-14T05:55:03.969864+00:00",
+  "context": {
+   "id": "01M4WFN0N14H1QB3PB4KTF0F3M",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.15_pokoj",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 0.5,
+   "current_temperature": 20.7,
+   "temperature": 16.0,
+   "hvac_action": "idle",
+   "friendly_name": "Pokoj 15",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.230194+00:00",
+  "last_reported": "2026-10-14T01:07:09.752639+00:00",
+  "last_updated": "2026-10-14T01:07:09.752639+00:00",
+  "context": {
+   "id": "01M4VZ5V9R7H4ET4C7491XR5XS",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.15_koupelna",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 22.6,
+   "temperature": 23.0,
+   "hvac_action": "heating",
+   "friendly_name": "15 Koupelna",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.235716+00:00",
+  "last_reported": "2026-10-14T05:55:03.970107+00:00",
+  "last_updated": "2026-10-14T05:55:03.970107+00:00",
+  "context": {
+   "id": "01M4WFN0N2W7FN3SPTYM927W4H",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.15_wc",
+  "state": "heat",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 23.0,
+   "temperature": 23.0,
+   "hvac_action": "heating",
+   "friendly_name": "15 WC",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.236042+00:00",
+  "last_reported": "2026-10-14T05:53:02.010184+00:00",
+  "last_updated": "2026-10-14T05:53:02.010184+00:00",
+  "context": {
+   "id": "01M4WFH9HT1HGAMZTZVQT6F82C",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.16_pokoj",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 19.6,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 16",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.236562+00:00",
+  "last_reported": "2026-10-14T05:54:02.922493+00:00",
+  "last_updated": "2026-10-14T05:54:02.922493+00:00",
+  "context": {
+   "id": "01M4WFK51AP689X15BE8KWMB6J",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.16_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.3,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 16",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.236868+00:00",
+  "last_reported": "2026-10-14T05:16:18.517827+00:00",
+  "last_updated": "2026-10-14T05:16:18.517827+00:00",
+  "context": {
+   "id": "01M4WDE1PND1FQZGYFTMTPME3B",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.17_pokoj",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 20.4,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 17",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.242514+00:00",
+  "last_reported": "2026-10-14T05:55:03.970519+00:00",
+  "last_updated": "2026-10-14T05:55:03.970519+00:00",
+  "context": {
+   "id": "01M4WFN0N2BNZA3JZAKT9B9Z8B",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.17_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 20.8,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 17",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.242911+00:00",
+  "last_reported": "2026-10-14T04:31:33.657824+00:00",
+  "last_updated": "2026-10-14T04:31:33.657824+00:00",
+  "context": {
+   "id": "01M4WAW3RSXVH0PC3KTCKYDPG8",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.18_pokoj",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 18.8,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 18",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.243828+00:00",
+  "last_reported": "2026-10-14T03:26:11.616196+00:00",
+  "last_updated": "2026-10-14T03:26:11.616196+00:00",
+  "context": {
+   "id": "01M4W74DN00N16QQ8C5JBPBT7H",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.18_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 18.6,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 18",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.244149+00:00",
+  "last_reported": "2026-10-14T05:05:07.212548+00:00",
+  "last_updated": "2026-10-14T05:05:07.212548+00:00",
+  "context": {
+   "id": "01M4WCSJ4CHX6ZRKGHZNRDE7C4",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.19_pokoj",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 18.6,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 19",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.245440+00:00",
+  "last_reported": "2026-10-14T03:59:54.149850+00:00",
+  "last_updated": "2026-10-14T03:59:54.149850+00:00",
+  "context": {
+   "id": "01M4W924S53ZBN7DJ07ASR97R4",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.19_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 19.2,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 19",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.245749+00:00",
+  "last_reported": "2026-10-14T04:36:38.866720+00:00",
+  "last_updated": "2026-10-14T04:36:38.866720+00:00",
+  "context": {
+   "id": "01M4WB5DTJANVVZHEQPQXYQK12",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.modra_chodba_prizemi",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 16.4,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Modra chodba prizemi",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.246024+00:00",
+  "last_reported": "2026-10-14T05:57:05.894754+00:00",
+  "last_updated": "2026-10-14T05:57:05.894754+00:00",
+  "context": {
+   "id": "01M4WFRQQ69H4Z8ZZV3YE79VG8",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.modra_schodiste",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 16.3,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Modra schodiste",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.246547+00:00",
+  "last_reported": "2026-10-14T05:54:02.923870+00:00",
+  "last_updated": "2026-10-14T05:54:02.923870+00:00",
+  "context": {
+   "id": "01M4WFK51BD6FFJGHC5J2JF1C0",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.20_pokoj",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 19.2,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 20",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.246819+00:00",
+  "last_reported": "2026-10-14T05:57:05.895379+00:00",
+  "last_updated": "2026-10-14T05:57:05.895379+00:00",
+  "context": {
+   "id": "01M4WFRQQ7FBT1D071RZ2YP5TT",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.20_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 19.6,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 20",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.250713+00:00",
+  "last_reported": "2026-10-14T04:46:48.850971+00:00",
+  "last_updated": "2026-10-14T04:46:48.850971+00:00",
+  "context": {
+   "id": "01M4WBR1GJXJ48B694XVC45AGM",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.21_pokoj",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 19.5,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 21",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.251014+00:00",
+  "last_reported": "2026-10-14T04:47:49.882627+00:00",
+  "last_updated": "2026-10-14T04:47:49.882627+00:00",
+  "context": {
+   "id": "01M4WBSX3T879MMWC4B8GDMYS9",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.21_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 19.8,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 21",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.252773+00:00",
+  "last_reported": "2026-10-14T04:12:06.484466+00:00",
+  "last_updated": "2026-10-14T04:12:06.484466+00:00",
+  "context": {
+   "id": "01M4W9RFYM0J0WSJXFSHSK52T5",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.24_pokoj",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 18.1,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 24",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.253070+00:00",
+  "last_reported": "2026-10-14T05:26:28.515260+00:00",
+  "last_updated": "2026-10-14T05:26:28.515260+00:00",
+  "context": {
+   "id": "01M4WE0ND344HX5CJCZF3SS7NF",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.24_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 17.9,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 24",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.253629+00:00",
+  "last_reported": "2026-10-14T05:55:03.970726+00:00",
+  "last_updated": "2026-10-14T05:55:03.970726+00:00",
+  "context": {
+   "id": "01M4WFN0N2QDX83W5GJGCAEYHV",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.modra_chodba_patro",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 19.1,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Modra chodba patro",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.253894+00:00",
+  "last_reported": "2026-10-14T05:17:19.349379+00:00",
+  "last_updated": "2026-10-14T05:17:19.349379+00:00",
+  "context": {
+   "id": "01M4WDFX3NV7BWTMXV2FZR88JN",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.22_pokoj",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 18.4,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 22",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.255340+00:00",
+  "last_reported": "2026-10-14T02:47:33.205495+00:00",
+  "last_updated": "2026-10-14T02:47:33.205495+00:00",
+  "context": {
+   "id": "01M4W4XNJNX2H9ZM4GT5W0V69Z",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.22_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 18.7,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 22",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.255880+00:00",
+  "last_reported": "2026-10-14T05:39:48.771741+00:00",
+  "last_updated": "2026-10-14T05:39:48.771741+00:00",
+  "context": {
+   "id": "01M4WES2X31JZPE8R9YE1Q1AS0",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.23_pokoj",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 18.6,
+   "temperature": 17.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 23",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.256162+00:00",
+  "last_reported": "2026-10-14T05:57:05.895724+00:00",
+  "last_updated": "2026-10-14T05:57:05.895724+00:00",
+  "context": {
+   "id": "01M4WFRQQ72QQWWG5SQ7X5YA04",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.23_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 19.1,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 23",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.256675+00:00",
+  "last_reported": "2026-10-14T05:52:00.898486+00:00",
+  "last_updated": "2026-10-14T05:52:00.898486+00:00",
+  "context": {
+   "id": "01M4WFFDW2MHVS2HG1CZ8CSW0W",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.25_pokoj",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 17.8,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 25",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.256944+00:00",
+  "last_reported": "2026-10-14T04:53:56.048564+00:00",
+  "last_updated": "2026-10-14T04:53:56.048564+00:00",
+  "context": {
+   "id": "01M4WC52PG62B5H728EZ0NW9R0",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.25_koupelna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 17.9,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 25",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.257216+00:00",
+  "last_reported": "2026-10-14T05:38:47.602807+00:00",
+  "last_updated": "2026-10-14T05:38:47.602807+00:00",
+  "context": {
+   "id": "01M4WEQ75J2JJX802DXK9F2YH5",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.vatna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 24.4,
+   "temperature": 17.0,
+   "hvac_action": "off",
+   "friendly_name": "Vatna   &",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.257505+00:00",
+  "last_reported": "2026-10-14T05:41:55.905690+00:00",
+  "last_updated": "2026-10-14T05:41:55.905690+00:00",
+  "context": {
+   "id": "01M4WEWZ21VHPAZ49Y06MS3MFC",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.sprchy_z",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 24.9,
+   "temperature": 18.0,
+   "hvac_action": "off",
+   "friendly_name": "Sprchy z",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.257760+00:00",
+  "last_reported": "2026-10-14T05:33:47.658509+00:00",
+  "last_updated": "2026-10-14T05:33:47.658509+00:00",
+  "context": {
+   "id": "01M4WEE28A9YSC25BS8XYG13TW",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.sprchy_m",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 25.1,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Sprchy m",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.258235+00:00",
+  "last_reported": "2026-10-14T05:33:47.658982+00:00",
+  "last_updated": "2026-10-14T05:33:47.658982+00:00",
+  "context": {
+   "id": "01M4WEE28AV8P3JT1ZYWXENK3C",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.pred_saunou",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 26.2,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "PRED SAUNOU",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.258512+00:00",
+  "last_reported": "2026-10-14T05:54:07.921363+00:00",
+  "last_updated": "2026-10-14T05:54:07.921363+00:00",
+  "context": {
+   "id": "01M4WFK9XHTKTJ7CGWDRRFM5AX",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.zchl_baz",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 25.5,
+   "temperature": 17.0,
+   "hvac_action": "off",
+   "friendly_name": "ZCHL,BAZ",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.263972+00:00",
+  "last_reported": "2026-10-14T05:56:10.098881+00:00",
+  "last_updated": "2026-10-14T05:56:10.098881+00:00",
+  "context": {
+   "id": "01M4WFQ17JZBC1EQS15EK42058",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.bazen_p",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 2070.8,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "BAZEN P",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.264274+00:00",
+  "last_reported": "2026-10-14T05:21:35.343228+00:00",
+  "last_updated": "2026-10-14T05:21:35.343228+00:00",
+  "context": {
+   "id": "01M4WDQQ3FEP9D20Q219BYE3ND",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.bazen_l",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 24.9,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "BAZEN L",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.271925+00:00",
+  "last_reported": "2026-10-14T05:47:00.737870+00:00",
+  "last_updated": "2026-10-14T05:47:00.737870+00:00",
+  "context": {
+   "id": "01M4WF68R1EW5H0Z2NMV0627PM",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.pizza",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.8,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "PIZZA",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.272253+00:00",
+  "last_reported": "2026-10-14T05:06:20.239163+00:00",
+  "last_updated": "2026-10-14T05:06:20.239163+00:00",
+  "context": {
+   "id": "01M4WCVSEFSWM1P6M91BEBJE8G",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.bar",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 22.8,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Bar",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.272567+00:00",
+  "last_reported": "2026-10-14T05:52:05.801401+00:00",
+  "last_updated": "2026-10-14T05:52:05.801401+00:00",
+  "context": {
+   "id": "01M4WFFJN9R6ZB3WN00HEBZ92R",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.wc_m",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.8,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "WC M",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.277100+00:00",
+  "last_reported": "2026-10-14T05:21:35.344211+00:00",
+  "last_updated": "2026-10-14T05:21:35.344211+00:00",
+  "context": {
+   "id": "01M4WDQQ3GEYHFKQA26Z9FK1KN",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.wc_z",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 20.5,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "WC Z",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.277697+00:00",
+  "last_reported": "2026-10-14T05:56:10.099333+00:00",
+  "last_updated": "2026-10-14T05:56:10.099333+00:00",
+  "context": {
+   "id": "01M4WFQ17K0P5FBM3DH9VSVY30",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.vchod",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 18.9,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "VCHOD",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.278371+00:00",
+  "last_reported": "2026-10-14T05:40:54.693458+00:00",
+  "last_updated": "2026-10-14T05:40:54.693458+00:00",
+  "context": {
+   "id": "01M4WEV3958SDX3YTGEQMP1X7N",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.kancelar",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 24.5,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "KANCELAR",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.284531+00:00",
+  "last_reported": "2026-10-14T05:26:40.578737+00:00",
+  "last_updated": "2026-10-14T05:26:40.578737+00:00",
+  "context": {
+   "id": "01M4WE1162B8XC2Y8JJEMP3WP4",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.sauna",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 2072.0,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "SAUNA",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.296087+00:00",
+  "last_reported": "2026-10-14T05:51:04.802641+00:00",
+  "last_updated": "2026-10-14T05:51:04.802641+00:00",
+  "context": {
+   "id": "01M4WFDQ32ZMD9JSMN9J7W3R7Z",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.1",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.4,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Kancel\u00e1\u0159",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.308459+00:00",
+  "last_reported": "2026-10-14T03:18:04.591826+00:00",
+  "last_updated": "2026-10-14T03:18:04.591826+00:00",
+  "context": {
+   "id": "01M4W6NJ1FDVKK8ZVQSPK2NH9Y",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.1_wc",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 20.9,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna Kancel\u00e1\u0159",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.314628+00:00",
+  "last_reported": "2026-10-14T05:20:34.345072+00:00",
+  "last_updated": "2026-10-14T05:20:34.345072+00:00",
+  "context": {
+   "id": "01M4WDNVH98Z09D76HGA5JHPPS",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.2",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.6,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 2",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.315269+00:00",
+  "last_reported": "2026-10-14T05:57:11.042954+00:00",
+  "last_updated": "2026-10-14T05:57:11.042954+00:00",
+  "context": {
+   "id": "01M4WFRWR2WWGNSDM84R5S6XJ6",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.2_wc",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.6,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 2",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.353629+00:00",
+  "last_reported": "2026-10-14T05:45:59.851465+00:00",
+  "last_updated": "2026-10-14T05:45:59.851465+00:00",
+  "context": {
+   "id": "01M4WF4D9BVZA95F1RVR4T587N",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.3",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.2,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 3",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.372891+00:00",
+  "last_reported": "2026-10-14T04:59:13.165255+00:00",
+  "last_updated": "2026-10-14T04:59:13.165255+00:00",
+  "context": {
+   "id": "01M4WCERCD84F4N7N72V88254M",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.3_wc",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.1,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 3",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.373568+00:00",
+  "last_reported": "2026-10-14T05:57:11.043689+00:00",
+  "last_updated": "2026-10-14T05:57:11.043689+00:00",
+  "context": {
+   "id": "01M4WFRWR3XECCSKAT8RZAKVKP",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.4",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 22.1,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 4",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.374189+00:00",
+  "last_reported": "2026-10-14T05:36:50.776747+00:00",
+  "last_updated": "2026-10-14T05:36:50.776747+00:00",
+  "context": {
+   "id": "01M4WEKN2RT58ZXMKNDXSXXEMD",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.4_wc",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.7,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 4",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.374510+00:00",
+  "last_reported": "2026-10-14T05:51:04.803073+00:00",
+  "last_updated": "2026-10-14T05:51:04.803073+00:00",
+  "context": {
+   "id": "01M4WFDQ3377F3744Z4GQ1FAWT",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.5",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 22.2,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Pokoj 5",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.379956+00:00",
+  "last_reported": "2026-10-14T05:35:49.686594+00:00",
+  "last_updated": "2026-10-14T05:35:49.686594+00:00",
+  "context": {
+   "id": "01M4WEHSDPS15FXXNNAF8VTWDJ",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.5_wc",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 22.3,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Koupelna 5",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.380266+00:00",
+  "last_reported": "2026-10-14T05:54:07.923180+00:00",
+  "last_updated": "2026-10-14T05:54:07.923180+00:00",
+  "context": {
+   "id": "01M4WFK9XKSFQ91TX8R06PZ7GY",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.kuchyn",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 21.4,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Kuchyn\u011b",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.401763+00:00",
+  "last_reported": "2026-10-14T05:57:11.044363+00:00",
+  "last_updated": "2026-10-14T05:57:11.044363+00:00",
+  "context": {
+   "id": "01M4WFRWR4GYPHHT9P0FWP9N7J",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.wc",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 22.2,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "WC",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.402473+00:00",
+  "last_reported": "2026-10-14T05:57:11.044837+00:00",
+  "last_updated": "2026-10-14T05:57:11.044837+00:00",
+  "context": {
+   "id": "01M4WFRWR4T5Z7YVDB1PBC0TYD",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.schody",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 22.3,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "SCHODY",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.402790+00:00",
+  "last_reported": "2026-10-14T05:55:08.942798+00:00",
+  "last_updated": "2026-10-14T05:55:08.942798+00:00",
+  "context": {
+   "id": "01M4WFN5GE9Y8MWFWRQK7RTFDE",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.sal",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 20.9,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "SAL",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.403115+00:00",
+  "last_reported": "2026-10-14T05:56:10.100631+00:00",
+  "last_updated": "2026-10-14T05:56:10.100631+00:00",
+  "context": {
+   "id": "01M4WFQ17MC8BX9NSKW3ZXQX4S",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.zchlazovaci_bazen",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 15.0,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Zchlazovaci bazen",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.408709+00:00",
+  "last_reported": "2026-10-14T05:56:10.100896+00:00",
+  "last_updated": "2026-10-14T05:56:10.100896+00:00",
+  "context": {
+   "id": "01M4WFQ17MT6N15D6FHM600R4H",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.satna_personal_wc",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 2062.9,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Satna personal WC",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.409029+00:00",
+  "last_reported": "2026-10-14T05:50:03.851688+00:00",
+  "last_updated": "2026-10-14T05:50:03.851688+00:00",
+  "context": {
+   "id": "01M4WFBVJBS9DR4S4M8GGAKE0C",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.satna_personal_spr",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 20.0,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Satna personal spr.",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.409560+00:00",
+  "last_reported": "2026-10-14T05:57:11.046236+00:00",
+  "last_updated": "2026-10-14T05:57:11.046236+00:00",
+  "context": {
+   "id": "01M4WFRWR67FVM1BMSZZQGXXM2",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.satna_personal",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 32.0,
+   "target_temp_step": 1.0,
+   "current_temperature": 16.9,
+   "temperature": 16.0,
+   "hvac_action": "off",
+   "friendly_name": "Satna personal",
+   "supported_features": 385
+  },
+  "last_changed": "2026-10-12T16:39:17.409827+00:00",
+  "last_reported": "2026-10-14T05:33:47.661821+00:00",
+  "last_updated": "2026-10-14T05:33:47.661821+00:00",
+  "context": {
+   "id": "01M4WEE28DKM8EW07C9043193A",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.kuchyne",
+  "state": "cool",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat",
+    "dry",
+    "cool",
+    "auto",
+    "fan_only"
+   ],
+   "min_temp": 18,
+   "max_temp": 30,
+   "target_temp_step": 0.5,
+   "fan_modes": [
+    "auto",
+    "low",
+    "medium",
+    "high"
+   ],
+   "swing_modes": [
+    "on",
+    "off"
+   ],
+   "swing_horizontal_modes": [
+    "on",
+    "off"
+   ],
+   "current_temperature": 21,
+   "temperature": 20,
+   "fan_mode": "auto",
+   "swing_mode": "off",
+   "swing_horizontal_mode": "off",
+   "friendly_name": "Klimatizace Kuchyn\u011b",
+   "supported_features": 937
+  },
+  "last_changed": "2026-10-14T05:00:04.152459+00:00",
+  "last_reported": "2026-10-14T05:33:39.459901+00:00",
+  "last_updated": "2026-10-14T05:33:39.459901+00:00",
+  "context": {
+   "id": "01M4WEDT83HVRJHZABNF9TNRBA",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.kancelar_moje",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "cool",
+    "heat",
+    "auto",
+    "fan_only",
+    "dry"
+   ],
+   "min_temp": 7,
+   "max_temp": 35,
+   "fan_modes": [
+    "auto",
+    "low",
+    "low_mid",
+    "medium",
+    "mid_high",
+    "high"
+   ],
+   "swing_modes": [
+    "on",
+    "off"
+   ],
+   "swing_horizontal_modes": [
+    "on",
+    "off"
+   ],
+   "current_temperature": 23,
+   "temperature": null,
+   "current_humidity": 27,
+   "fan_mode": "low",
+   "swing_mode": "off",
+   "swing_horizontal_mode": "off",
+   "friendly_name": "KANCELA\u0158 MOJE",
+   "supported_features": 937
+  },
+  "last_changed": "2026-10-12T16:39:18.399330+00:00",
+  "last_reported": "2026-10-14T05:34:43.909485+00:00",
+  "last_updated": "2026-10-14T05:34:43.909485+00:00",
+  "context": {
+   "id": "01M4WEFS65HZNHRQ9W0EQFFNAY",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.kancl_dole",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "cool",
+    "auto",
+    "fan_only",
+    "heat",
+    "dry"
+   ],
+   "min_temp": 7,
+   "max_temp": 35,
+   "fan_modes": [
+    "auto",
+    "low",
+    "low_mid",
+    "medium",
+    "mid_high",
+    "high"
+   ],
+   "swing_modes": [
+    "on",
+    "off"
+   ],
+   "swing_horizontal_modes": [
+    "on",
+    "off"
+   ],
+   "current_temperature": 25.5,
+   "temperature": null,
+   "current_humidity": 24,
+   "fan_mode": "low",
+   "swing_mode": "off",
+   "swing_horizontal_mode": "on",
+   "friendly_name": "KANCL DOLE",
+   "supported_features": 937
+  },
+  "last_changed": "2026-10-12T16:39:18.399596+00:00",
+  "last_reported": "2026-10-14T03:49:46.768770+00:00",
+  "last_updated": "2026-10-14T03:49:46.768770+00:00",
+  "context": {
+   "id": "01M4W8FKMGXTKX116FB1C30C7X",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.klimatizace_bar",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "fan_only",
+    "cool",
+    "heat",
+    "dry",
+    "auto"
+   ],
+   "min_temp": 7,
+   "max_temp": 35,
+   "fan_modes": [
+    "auto",
+    "low",
+    "medium",
+    "high"
+   ],
+   "swing_modes": [
+    "on",
+    "off"
+   ],
+   "swing_horizontal_modes": [
+    "on",
+    "off"
+   ],
+   "current_temperature": 23,
+   "temperature": null,
+   "fan_mode": "mid_high",
+   "swing_mode": "off",
+   "swing_horizontal_mode": "off",
+   "friendly_name": "Klimatizace Bar",
+   "supported_features": 937
+  },
+  "last_changed": "2026-10-12T16:39:18.399842+00:00",
+  "last_reported": "2026-10-14T04:43:37.802592+00:00",
+  "last_updated": "2026-10-14T04:43:37.802592+00:00",
+  "context": {
+   "id": "01M4WBJ6YASRGG499720KHNNDM",
+   "parent_id": null,
+   "user_id": null
+  }
+ },
+ {
+  "entity_id": "climate.denis_air",
+  "state": "off",
+  "attributes": {
+   "hvac_modes": [
+    "off",
+    "heat_cool",
+    "cool",
+    "dry",
+    "heat"
+   ],
+   "min_temp": 16.0,
+   "max_temp": 88.0,
+   "target_temp_step": 1.0,
+   "fan_modes": [
+    "auto",
+    "low",
+    "low_mid",
+    "mid",
+    "mid_high",
+    "high",
+    "mute",
+    "turbo"
+   ],
+   "preset_modes": [
+    "fan"
+   ],
+   "current_temperature": 23.0,
+   "temperature": 16.0,
+   "fan_mode": null,
+   "preset_mode": null,
+   "friendly_name": "Denis Air",
+   "supported_features": 409
+  },
+  "last_changed": "2026-10-12T16:39:22.644913+00:00",
+  "last_reported": "2026-10-14T05:14:38.038815+00:00",
+  "last_updated": "2026-10-14T05:14:38.038815+00:00",
+  "context": {
+   "id": "01M4WDAZJPT08X07SSX995EAXX",
+   "parent_id": null,
+   "user_id": null
+  }
+ }
+]
