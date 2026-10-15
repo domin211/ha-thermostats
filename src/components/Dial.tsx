@@ -27,6 +27,7 @@ export function toneOf(c: Climate): DialTone {
   if (reading(c).kind === "fault") return "fault";
   if (c.unavailable || c.state === "off") return "off";
   if (isHeating(c)) return "heat";
+  if (c.state === "heat" && c.target !== null && c.target > 16) return "heat";
   if (c.action === "cooling" || c.state === "cool") return "cool";
   return "idle";
 }
@@ -62,7 +63,7 @@ export function ToneIcon({ c, className }: { c: Climate; className?: string }) {
     if (c.state === "off" || c.target === null || c.target <= 16) return <Snow className={`ico ico-sky ${className ?? ""}`} />;
     return <Flame className={`ico ico-idle ${className ?? ""}`} />;
   }
-  if (t === "heat") return <Flame className={`ico ico-heat ${className ?? ""}`} />;
+  if (t === "heat") return <Flame className={`ico ${isHeating(c) ? "ico-heat" : "ico-idle"} ${className ?? ""}`} />;
   if (t === "cool") return <Snow className={`ico ico-cool ${className ?? ""}`} />;
   if (c.state === "fan_only") return <Fan className={`ico ico-idle ${className ?? ""}`} />;
   if (c.state === "dry") return <Drop className={`ico ico-cool ${className ?? ""}`} />;
