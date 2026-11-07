@@ -9,7 +9,6 @@ export const AREAS: { key: AreaKey; label: string }[] = [
   { key: "corridors", label: "Chodby domečků" },
   { key: "wellness", label: "Wellness" },
   { key: "staff", label: "Personál a kanceláře" },
-  { key: "ac", label: "Klimatizace" },
   { key: "common", label: "Společné prostory" },
 ];
 

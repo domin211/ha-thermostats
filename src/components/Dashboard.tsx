@@ -97,7 +97,10 @@ export function Dashboard({ initial }: { initial: StatesResponse | null }) {
 
   const byArea = useMemo(() => {
     const m = Object.fromEntries(AREAS.map((a) => [a.key, [] as Climate[]])) as Record<AreaKey, Climate[]>;
-    for (const c of climates) m[areaOf(c)].push(c);
+    for (const c of climates) {
+      if (isAc(c)) continue;
+      m[areaOf(c)].push(c);
+    }
     return m;
   }, [climates]);
 
